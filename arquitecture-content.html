@@ -18,14 +18,14 @@
     <ul>
         <li><a href="http://hl7.org/fhir/2015May/questionnaireanswers.html">QuestionnaireAnswers</a>: It codifies activity reports and the answers of the surveys.</li>
         <li><a href="http://hl7.org/fhir/2015May/contract.html">Contract</a>: It captures the information regarding the consent form.</li>
-        <li><a href="http://hl7.org/fhir/2015May/observation.html">Observation</a>: It includes information extrated from <a href="http://www.applehealthkit.com/">Apple's Health Kit</a>.</li>
+        <li><a href="http://hl7.org/fhir/2015May/observation.html">Observation</a>: It includes information extracted from <a href="http://www.applehealthkit.com/">Apple's Health Kit</a>.</li>
         <li><a href="http://hl7.org/fhir/2015May/patient.html">Patient</a>: It only includes information regarding the US state of the patient.</li>
         <li><a href="http://hl7.org/fhir/2015May/questionnaire.html">Questionnaire</a>: The app consumes this resource from the C3-PRO-SERVER.</li>
     </ul>
 </p>
 <h3>C3-PRO Server</h3>
 <p>
-    The current version is thought to run behind an Elastic Load Balancer (ELB), and acts as a proxy that ensures highly availability and scalability of the App backend. It uses the following AWS resources:
+    The current release runs behind an Elastic Load Balancer (ELB), and acts as a proxy that ensures highly availability and scalability of the App backend. It uses the following AWS resources:
 </p>
 <p>
     <ul>
@@ -37,7 +37,8 @@
 
 <h3>C3-PRO Consumer</h3>
 <p>
-    It's a daemon that runs in-house under very restrictive access. It consumes from the SQS, decrypts the FHIR resources and sends them into i2b2 using the newly created C3-PRO FHIR I2B2 Cell, which allows to PUT and POST the FHIR resources mentioned above. To ensure that all data is recorded properly, all encrypted raw data is also sotres in-house as BLOB.
+    It's a daemon that runs in-house under very restrictive access. It consumes from the SQS, decrypts the FHIR resources and sends them into i2b2 using the newly created C3-PRO FHIR I2B2 Cell.
+    To ensure that all data is recorded properly, all encrypted raw data is also stored in-house as BLOB.
 </p>
 <p>
 
