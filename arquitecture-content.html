@@ -1,0 +1,49 @@
+<h2>The C3-PRO Components</h2>
+
+<p>
+<img class="reduced-less" src="images/C3-PRO-Architecture.png" alt="C3-PRO Diagram" /></a>
+</p>
+
+<p>
+
+</p>
+
+<h3>C3-PRO Research Kit App</h3>
+<p>
+    Installed on the iPhone, the App is built on the top of Apple's Research Kit. It manages the consent workflow for patients willing to enroll to a study,
+    and enables the run of surveys and activity reports performed by the patients in their iPhones. All data is codified as FHIR resources and encrypted in
+    device using AES and a Public RSA Key generated from an in-house server before sending. The FHIR resources used are:
+</p>
+<p>
+    <ul>
+        <li><a href="http://hl7.org/fhir/2015May/questionnaireanswers.html">QuestionnaireAnswers</a>: It codifies activity reports and the answers of the surveys.</li>
+        <li><a href="http://hl7.org/fhir/2015May/contract.html">Contract</a>: It captures the information regarding the consent form.</li>
+        <li><a href="http://hl7.org/fhir/2015May/observation.html">Observation</a>: It includes information extrated from <a href="http://www.applehealthkit.com/">Apple's Health Kit</a>.</li>
+        <li><a href="http://hl7.org/fhir/2015May/patient.html">Patient</a>: It only includes information regarding the US state of the patient.</li>
+        <li><a href="http://hl7.org/fhir/2015May/questionnaire.html">Questionnaire</a>: The app consumes this resource from the C3-PRO-SERVER.</li>
+    </ul>
+</p>
+<h3>C3-PRO Server</h3>
+<p>
+    The current version is thought to run behind an Elastic Load Balancer (ELB), and acts as a proxy that ensures highly availability and scalability of the App backend. It uses the following AWS resources:
+</p>
+<p>
+    <ul>
+        <li><a href="https://aws.amazon.com/sqs/">SQS</a>: All received encrypted FHIR resources are enqueued in a SQS. C3-PRO-SERVER does not decrypt the information</li>
+        <li><a href="https://aws.amazon.com/s3/">S3</a>: Used to server static content, like Questionnaire resources.</li>
+        <li><a href="https://aws.amazon.com/rds/">RDS DB</a>: Relational DB to manage <a href="http://oauthbible.com/">OAuth 2 two-legged</a> authorization</li>
+    </ul>
+</p>
+
+<h3>C3-PRO Consumer</h3>
+<p>
+    It's a daemon that runs in-house under very restrictive access. It consumes from the SQS, decrypts the FHIR resources and sends them into i2b2 using the newly created C3-PRO FHIR I2B2 Cell, which allows to PUT and POST the FHIR resources mentioned above. To ensure that all data is recorded properly, all encrypted raw data is also sotres in-house as BLOB.
+</p>
+<p>
+
+</p>
+
+<h3>C3-PRO FHIR I2B2 cell</h3>
+<p>
+    It's an <a href="https://www.i2b2.org/">i2b2</a> FHIR DSTU-2 compliant cell. In this first release, it accepts PUT and POST rest calls of the resources mentioned above.
+</p>
