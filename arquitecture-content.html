@@ -11,8 +11,8 @@
 <h3>C3-PRO Research Kit App</h3>
 <p>
     Installed on the iPhone, the App is built on the top of Apple's Research Kit. It manages the consent workflow for patients willing to enroll to a study,
-    and enables the run of surveys and activity reports performed by the patients in their iPhones. All data is codified as FHIR resources and encrypted in
-    device using AES and a Public RSA Key generated from an in-house server before sending. The FHIR resources used are:
+    and drive surveys and activity reports performed by the patients. Data is captured as FHIR resources and encrypted in-device using AES and a Public RSA Key generated from an in-house server.
+    The used FHIR resources in the first release are:
 </p>
 <p>
     <ul>
@@ -25,20 +25,20 @@
 </p>
 <h3>C3-PRO Server</h3>
 <p>
-    The current release runs behind an Elastic Load Balancer (ELB), and acts as a proxy that ensures highly availability and scalability of the App backend. It uses the following AWS resources:
+    The current release runs in a highly reliable AWS environment to ensure highly availability and scalability for the App. It's in charge of
 </p>
 <p>
     <ul>
-        <li><a href="https://aws.amazon.com/sqs/">SQS</a>: All received encrypted FHIR resources are enqueued in a SQS. C3-PRO-SERVER does not decrypt the information</li>
-        <li><a href="https://aws.amazon.com/s3/">S3</a>: Used to server static content, like Questionnaire resources.</li>
-        <li><a href="https://aws.amazon.com/rds/">RDS DB</a>: Relational DB to manage <a href="http://oauthbible.com/">OAuth 2 two-legged</a> authorization</li>
+        <li>Handeling the REST calls from the App and temporally store the encrypted resources.</li>
+        <li>Delivering static content like Questionnaire resources.</li>
+        <li>Managing <a href="http://oauthbible.com/">OAuth 2 two-legged</a> protocol to authorize App requests.</li>
     </ul>
 </p>
 
 <h3>C3-PRO Consumer</h3>
 <p>
     It's a daemon that runs in-house under very restrictive access. It consumes from the SQS, decrypts the FHIR resources and sends them into i2b2 using the newly created C3-PRO FHIR I2B2 Cell.
-    To ensure that all data is recorded properly, all encrypted raw data is also stored in-house as BLOB.
+    To ensure that all data is recorded properly, encrypted raw data is also stored in-house as BLOB.
 </p>
 <p>
 
@@ -46,5 +46,5 @@
 
 <h3>C3-PRO FHIR I2B2 cell</h3>
 <p>
-    It's an <a href="https://www.i2b2.org/">i2b2</a> FHIR DSTU-2 compliant cell. In this first release, it accepts PUT and POST rest calls of the resources mentioned above.
+    It's an <a href="https://www.i2b2.org/">i2b2</a> <a href="http://hl7.org/fhir/2015May/">FHIR DSTU-2 </a> compliant cell. In this first release, it accepts PUT and POST rest calls of the resources mentioned above.
 </p>
