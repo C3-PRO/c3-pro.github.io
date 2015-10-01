@@ -3,48 +3,48 @@
 <p>
 <img class="reduced-less" src="images/C3-PRO-Architecture.png" alt="C3-PRO Diagram" /></a>
 </p>
-
-<p>
-
-</p>
+<p></p>
 
 <h3>C3-PRO Research Kit App</h3>
 <p>
-    Installed on the iPhone, the App is built on the top of Apple's Research Kit. It manages the consent workflow for patients willing to enroll to a study,
-    and drive surveys and activity reports performed by the patients. Data is captured as FHIR resources and encrypted in-device using AES and a Public RSA Key generated from an in-house server.
-    The used FHIR resources in the first release are:
+    Installed on the iPhone, the App is built on top of Apple's <a href="http://www.researchkit.org/" target="_blank">ResearchKit</a>.
+    It manages consent workflow for patients willing to enroll in a study and drives surveys and activity reports performed by patients.
+    Data is captured as FHIR resources and encrypted on-device using AES and public-key RSA algorithms.
+    The private key is only known to the researcher's (in-house) server, making decryption impossible on all public-facing parts.
+    The FHIR resources currently supported are:
 </p>
 <p>
     <ul>
-        <li><a href="http://hl7.org/fhir/2015May/questionnaireanswers.html">QuestionnaireAnswers</a>: It codifies activity reports and the answers of the surveys.</li>
-        <li><a href="http://hl7.org/fhir/2015May/contract.html">Contract</a>: It captures the information regarding the consent form.</li>
-        <li><a href="http://hl7.org/fhir/2015May/observation.html">Observation</a>: It includes information extracted from <a href="http://www.applehealthkit.com/">Apple's Health Kit</a>.</li>
-        <li><a href="http://hl7.org/fhir/2015May/patient.html">Patient</a>: It only includes information regarding the US state of the patient.</li>
-        <li><a href="http://hl7.org/fhir/2015May/questionnaire.html">Questionnaire</a>: The app consumes this resource from the C3-PRO-SERVER.</li>
+        <li><a href="http://hl7.org/fhir/2015May/patient.html" target="_blank">Patient</a>: minimal, HIPAA-compliant de-identified participant information.</li>
+        <li><a href="http://hl7.org/fhir/2015May/contract.html" target="_blank">Contract</a>: captures consent information.</li>
+        <li><a href="http://hl7.org/fhir/2015May/observation.html" target="_blank">Observation</a>: patient facts, such as gender and weight, extracted from <a href="http://www.apple.com/ios/health/" target="_blank">HealthKit</a>.</li>
+        <li><a href="http://hl7.org/fhir/2015May/questionnaire.html">Questionnaire</a>: resource consumed by the app from the C3-PRO server.</li>
+        <li><a href="http://hl7.org/fhir/2015May/questionnaireanswers.html" target="_blank">QuestionnaireAnswers</a>: codifies activity reports and survey answers.</li>
     </ul>
 </p>
+
 <h3>C3-PRO Server</h3>
 <p>
-    The current release runs in a highly reliable AWS environment to ensure highly availability and scalability for the App. It's in charge of
+    The current release runs in a highly reliable AWS environment to ensure high availability and scalability.
+    It's in charge of
 </p>
 <p>
     <ul>
-        <li>Handeling the REST calls from the App and temporally store the encrypted resources.</li>
-        <li>Delivering static content like Questionnaire resources.</li>
-        <li>Managing <a href="http://oauthbible.com/">OAuth 2 two-legged</a> protocol to authorize App requests.</li>
+        <li>handling REST calls from the App and temporally store encrypted resources to an SQS</li>
+        <li>delivering static content like Questionnaire resources</li>
+        <li>managing <a href="http://oauthbible.com/">OAuth 2 two-legged</a> authentications to authorize App requests</li>
     </ul>
 </p>
 
 <h3>C3-PRO Consumer</h3>
 <p>
-    It's a daemon that runs in-house under very restrictive access. It consumes from the SQS, decrypts the FHIR resources and sends them into i2b2 using the newly created C3-PRO FHIR I2B2 Cell.
+    Daemon that runs in-house with highly limited access.
+    Consumes from the SQS queue, decrypts the FHIR resources and sends them into i2b2 using the newly created C3-PRO FHIR i2b2 cell.
     To ensure that all data is recorded properly, encrypted raw data is also stored in-house as BLOB.
 </p>
-<p>
 
-</p>
-
-<h3>C3-PRO FHIR I2B2 cell</h3>
+<h3>C3-PRO FHIR i2b2 Cell</h3>
 <p>
-    It's an <a href="https://www.i2b2.org/">i2b2</a> <a href="http://hl7.org/fhir/2015May/">FHIR DSTU-2 </a> compliant cell. In this first release, it accepts PUT and POST rest calls of the resources mentioned above.
+    An <a href="https://www.i2b2.org/">i2b2</a> <a href="http://hl7.org/fhir/2015May/">FHIR DSTU-2 </a> compliant cell.
+    In this first release the cell accepts PUT and POST REST calls for the resources mentioned above, converting them into i2b2 facts.
 </p>
