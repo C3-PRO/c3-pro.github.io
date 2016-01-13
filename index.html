@@ -60,23 +60,92 @@
 						<div class="row 200%">
 							<section class="4u 12u(narrower)">
 								<div class="box highlight">
-									<i class="icon major fa-paper-plane"></i>
+									<i class="icon major fa-cogs"></i>
 									<h3>What is C3-PRO?</h3>
-									<p>C3-PRO is a set of <a href="http://www.hl7.org/fhir/">FHIR</a> DSTU-2 compliant software systems that enables the integration of <a href="http://researchkit.org/">Apple's Research Kit</a> data into <a href="https://www.i2b2.org/">i2b2</a> in a secured and highly scalable fashion. <a href="architecture.html">Read more...</a></p>
+									<p>C3-PRO is a set of <a href="http://www.hl7.org/fhir/">FHIR</a> compliant software systems that enables integration of data collected via <a href="http://researchkit.org/">ResearchKit</a> into <a href="https://www.i2b2.org/">i2b2</a> in a secure, highly scalable fashion.
+									</p>
+									<p><a href="architecture.html">» Architecture</a></p>
 								</div>
 							</section>
 							<section class="4u 12u(narrower)">
 								<div class="box highlight">
-									<i class="icon major fa-pencil"></i>
+									<i class="icon major fa-bar-chart"></i>
 									<h3>Used in real studies</h3>
-									<p><a href="http://c-tracker.chip.org/">C&nbsp;Tracker</a> is the first research study utilizing C3-PRO. The study evaluates the impact of hepatitis&nbsp;C on people’s lives by enabling patients to participate from their iPhones.</p>
+									<p><em>C&nbsp;Tracker</em> is the first research study utilizing C3-PRO. The study evaluates the impact of hepatitis&nbsp;C on people’s lives by enabling patients to participate from their iPhones.</p>
+									<p>
+										<a href="http://c-tracker.chip.org/">» C&nbsp;Tracker</a>
+									</p>
 								</div>
 							</section>
 							<section class="4u 12u(narrower)">
 								<div class="box highlight">
 									<i class="icon major fa-wrench"></i>
 									<h3>For Developers</h3>
-									<p>Source code will be available shortly. Please, keep checking this page for updates. Meanwhile, you can read the architectural page. <a href="architecture.html">Read more...</a></p>
+									<p>Source code for all components will be available shortly. We're also setting up a Google Group for discussions and updates. Please, keep checking this page for updates.</p>
+									<p>
+										<a href="https://groups.google.com/forum/#!forum/c3-pro-developers" target="_blank">» Google Group</a></p>
+								</div>
+							</section>
+						</div>
+					</div>
+				</section>
+
+			<!-- Gigantic Heading -->
+				<section class="wrapper style2">
+					<div class="container">
+						<header class="major">
+							<h2>All the modules you need, on-device and server-side</h2>
+							<p>
+								C3-PRO has you covered. The <em>Swift</em> iOS framework makes life easier for your mobile developers while the “receiver”, “consumer” and i2b2 cell components, written in <em>Java</em>, let your developers hook services together easily.
+								<br>
+								<br>
+								Since data is transferred in either pure <em>FHIR</em> or a very simple JSON format—containing an encrypted FHIR resource—you can substitute any part of C3-PRO with your preferred solution.
+							</p>
+						</header>
+					</div>
+				</section>
+
+			<!-- Posts -->
+				<section class="wrapper style1">
+					<div class="container">
+						<h2>Leading Technologies, Combined</h2>
+						<div class="row">
+							<section class="6u 12u(narrower)">
+								<div class="box post">
+									<a href="https://www.i2b2.org/" class="image left"><img class="reduced" src="images/i2b2cell.gif" alt="i2b2" /></a>
+									<div class="inner">
+										<h3>i2b2 Integration</h3>
+										<p>C3-PRO stores gathered data into an institutionally hosted <a href="https://www.i2b2.org/" target="_blank">i2b2</a> instance, the widely adopted scalable <a href="https://en.wikipedia.org/wiki/Data_mining" target="_blank">data mining</a> system for clinical research.</p>
+									</div>
+								</div>
+							</section>
+							<section class="6u 12u(narrower)">
+								<div class="box post">
+									<a href="http://researchkit.org/" class="image left"><img class="reduced-more" src="images/researchkit.jpg" alt="Apple's Research Kit" /></a>
+									<div class="inner">
+										<h3>ResearchKit</h3>
+										<p>C3-PRO uses <a href="http://researchkit.org/" target="_blank">Apple's ResearchKit</a> framework to consent patients and to drive surveys and activity reports directly on patients' iPhones.</p>
+									</div>
+								</div>
+							</section>
+						</div>
+						<div class="row">
+							<section class="6u 12u(narrower)">
+								<div class="box post">
+									<a href="http://www.hl7.org/fhir/" class="image left"><img class="reduced" src="images/fhir.png" alt="i2b2" /></a>
+									<div class="inner">
+										<h3>FHIR compliant</h3>
+										<p>C3-PRO subsystems use the <i>FHIR</i> 🔥 standard: from iPhone to i2b2, data is captured and transmitted using <a href="http://hl7.org/fhir/index.html" target="_blank">FHIR</a> resources.</p>
+									</div>
+								</div>
+							</section>
+							<section class="6u 12u(narrower)">
+								<div class="box post">
+									<a href="https://aws.amazon.com/sqs/" class="image left"><img class="reduced" src="images/sqs.png" alt="Apple's Research Kit" /></a>
+									<div class="inner">
+										<h3>Highly scalable and secure</h3>
+										<p>Data is encrypted on the iPhone and temporally stored in highly reliable <a href="https://aws.amazon.com/" target="_blank">AWS</a> instances. The <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)" target="_blank">RSA</a> and <a href="https://es.wikipedia.org/wiki/Advanced_Encryption_Standard" target="_blank">AES</a> cryptography algorithms are used for encryption.</p>
+									</div>
 								</div>
 							</section>
 						</div>
@@ -88,57 +157,9 @@
 					<div class="container">
 						<header class="major">
 							<h2>C&nbsp;Tracker: a real case study using C3-PRO</h2>
-							<a href="http://c-tracker.chip.org/"><img class="reduced-more" src="images/C-Tracker.png" alt="C Tracker" /></a>
+							<a href="http://c-tracker.chip.org/"><img class="reduced-more" src="images/C-Tracker.png" srcset="images/C-Tracker@2x.png 2x, images/C-Tracker@3x.png 3x" alt="C Tracker" /></a>
 							<h3>Evaluating the impact of hepatitis&nbsp;C on people’s lives</h3>
 						</header>
-					</div>
-				</section>
-
-			<!-- Posts -->
-				<section class="wrapper style1">
-					<div class="container">
-						<div class="row">
-							<section class="6u 12u(narrower)">
-								<div class="box post">
-									<a href="https://www.i2b2.org/" class="image left"><img class="reduced" src="images/i2b2cell.gif" alt="i2b2" /></a>
-									<div class="inner">
-										<h3>i2b2 Integration</h3>
-										<p>C3-PRO stores the gathered data into an <a href="https://www.i2b2.org/">i2b2</a> instance, the widely adopted scalable <a href="https://en.wikipedia.org/wiki/Data_mining">data mining</a> system for clinical research.</p>
-									</div>
-								</div>
-							</section>
-							<section class="6u 12u(narrower)">
-								<div class="box post">
-									<a href="http://researchkit.org/" class="image left"><img class="reduced-more" src="images/researchkit.jpg" alt="Apple's Research Kit" /></a>
-									<div class="inner">
-										<h3>ResearchKit</h3>
-										<p>C3-PRO uses <a href="http://researchkit.org/">Apple's ResearchKit</a> framework to consent patients and to drive surveys and activity reports directly on patients' iPhones.</p>
-									</div>
-								</div>
-							</section>
-						</div>
-					</div>
-					<div class="container">
-						<div class="row">
-							<section class="6u 12u(narrower)">
-								<div class="box post">
-									<a href="http://www.hl7.org/fhir/" class="image left"><img class="reduced" src="images/fhir.png" alt="i2b2" /></a>
-									<div class="inner">
-										<h3>FHIR DSTU-2 compliant</h3>
-										<p>C3-PRO subsystems use <a href="http://hl7.org/fhir/2015May/index.html">FHIR DSTU-2</a> standards. From iPhone to i2b2, data is transmitted and captured using <a href="http://hl7.org/fhir/2015May/index.html">FHIR DSTU-2 </a> resources.</p>
-									</div>
-								</div>
-							</section>
-							<section class="6u 12u(narrower)">
-								<div class="box post">
-									<a href="https://aws.amazon.com/sqs/" class="image left"><img class="reduced" src="images/sqs.png" alt="Apple's Research Kit" /></a>
-									<div class="inner">
-										<h3>Highly scalable and secure</h3>
-										<p>Data is encrypted on the iPhone and temporally stored in highly reliable <a href="https://aws.amazon.com/">AWS</a> instances. Decryption happens in-house using <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA</a> and <a href="https://es.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a> encryption algorithms.</p>
-									</div>
-								</div>
-							</section>
-						</div>
 					</div>
 				</section>
 

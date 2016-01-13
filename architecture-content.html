@@ -7,23 +7,23 @@
 
 <h3>C3-PRO Research Kit App</h3>
 <p>
-    Installed on the iPhone, the App is built on top of Apple's <a href="http://www.researchkit.org/" target="_blank">ResearchKit</a>.
-    It manages consent workflow for patients willing to enroll in a study and drives surveys and activity reports performed by patients.
+    The app, installed on the participant's iPhone, is built on top of Apple <a href="http://www.researchkit.org/" target="_blank">ResearchKit</a>.
+    It captures consent of participants willing to enroll in a study, then handles surveys, interactive tasks and sensory data collection.
     Data is captured as FHIR resources and encrypted on-device using AES and public-key RSA algorithms.
     The private key is only known to the researcher's (in-house) server, making decryption impossible on all public-facing parts.
-    The FHIR resources currently supported are:
+    The FHIR resources currently in use are:
 </p>
 <p>
     <ul>
-        <li><a href="http://hl7.org/fhir/2015May/patient.html" target="_blank">Patient</a>: minimal, HIPAA-compliant de-identified participant information.</li>
-        <li><a href="http://hl7.org/fhir/2015May/contract.html" target="_blank">Contract</a>: captures consent information.</li>
-        <li><a href="http://hl7.org/fhir/2015May/observation.html" target="_blank">Observation</a>: patient facts, such as gender and weight, extracted from <a href="http://www.apple.com/ios/health/" target="_blank">HealthKit</a>.</li>
-        <li><a href="http://hl7.org/fhir/2015May/questionnaire.html">Questionnaire</a>: resource consumed by the app from the C3-PRO server.</li>
-        <li><a href="http://hl7.org/fhir/2015May/questionnaireanswers.html" target="_blank">QuestionnaireAnswers</a>: codifies activity reports and survey answers.</li>
+        <li><a href="http://hl7.org/fhir/patient.html" target="_blank">Patient</a>: minimal, HIPAA-compliant de-identified participant information.</li>
+        <li><a href="http://hl7.org/fhir/contract.html" target="_blank">Contract</a>: captures consent information.</li>
+        <li><a href="http://hl7.org/fhir/observation.html" target="_blank">Observation</a>: patient facts, such as gender and weight, extracted from <a href="http://www.apple.com/ios/health/" target="_blank">HealthKit</a>.</li>
+        <li><a href="http://hl7.org/fhir/questionnaire.html" target="_blank">Questionnaire</a>: resource consumed by the app from the C3-PRO server.</li>
+        <li><a href="http://hl7.org/fhir/questionnaireanswers.html" target="_blank">QuestionnaireAnswers</a>: codifies activity reports and survey answers.</li>
     </ul>
 </p>
 
-<h3>C3-PRO Server</h3>
+<h3>C3-PRO “Receiver” Server</h3>
 <p>
     The current release runs in a highly reliable AWS environment to ensure high availability and scalability.
     It's in charge of
@@ -36,7 +36,7 @@
     </ul>
 </p>
 
-<h3>C3-PRO Consumer</h3>
+<h3>C3-PRO “Consumer”</h3>
 <p>
     Daemon that runs in-house with highly limited access.
     Consumes from the SQS queue, decrypts the FHIR resources and sends them into i2b2 using the newly created C3-PRO FHIR i2b2 cell.
@@ -46,5 +46,5 @@
 <h3>C3-PRO FHIR i2b2 Cell</h3>
 <p>
     An <a href="https://www.i2b2.org/">i2b2</a> <a href="http://hl7.org/fhir/2015May/">FHIR DSTU-2 </a> compliant cell.
-    In this first release the cell accepts PUT and POST REST calls for the resources mentioned above, converting them into i2b2 facts.
+    In this first release the cell accepts PUT and POST REST calls for the resources mentioned above, converting them to i2b2 facts.
 </p>
