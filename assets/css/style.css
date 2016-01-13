@@ -94,6 +94,11 @@ header a {
 	max-width: 100%;
 }
 
+.wrap-readable {
+	max-width: 48em;
+	margin: 0 auto;
+}
+
 .icon.fun {
 	display: inline-block; width: 1.5em;
 	height:1.5em;
