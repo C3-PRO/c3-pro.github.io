@@ -9,14 +9,6 @@
 
 /* Reset */
 
-	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-		margin: 0;
-		padding: 0;
-		border: 0;
-		font-size: 100%;
-		font: inherit;
-		vertical-align: baseline;
-	}
 
 	article, aside, details, figcaption, figure, footer, header, menu, nav, section {
 		display: block;
@@ -24,19 +16,6 @@
 
 	body {
 		line-height: 1;
-	}
-
-	ol, ul {
-		list-style: none;
-	}
-
-	blockquote, q {
-		quotes: none;
-	}
-
-	blockquote:before, blockquote:after, q:before, q:after {
-		content: '';
-		content: none;
 	}
 
 	table {
@@ -62,6 +41,9 @@
 		margin-left: auto;
 		margin-right: auto;
 	}
+		.container h2:first-of-type {
+			margin-top: 0;
+		}
 
 	.container.\31 25\25 {
 		width: 100%;
@@ -1860,12 +1842,10 @@
 
 	h2 {
 		font-size: 1.75em;
-		letter-spacing: -0.025em;
 	}
 
 	h3 {
 		font-size: 1.2em;
-		letter-spacing: -0.025em;
 	}
 
 	sub {
@@ -2304,6 +2284,9 @@
 	.box.highlight {
 		text-align: center;
 	}
+	.box.highlight > h3 {
+		margin-top: 0;
+	}
 
 	.box.post {
 		position: relative;
@@ -2319,7 +2302,9 @@
 		.box.post .inner {
 			margin-left: calc(30% + 2em);
 		}
-
+			.box.post .inner > h3 {
+				margin: 0;
+			}
 			.box.post .inner > :last-child {
 				margin-bottom: 0;
 			}
@@ -2373,6 +2358,7 @@
 
 		#nav > ul {
 			margin: 0;
+			padding: 0;
 		}
 
 			#nav > ul > li {
