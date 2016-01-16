@@ -2,14 +2,17 @@
 <h2>The C3-PRO Components</h2>
 
 <p>
-<img class="reduced-less" src="images/C3-PRO-Architecture.png" alt="C3-PRO Diagram" /></a>
+    <img class="reduced-less" src="images/C3-PRO-Architecture.png" alt="C3-PRO Diagram">
 </p>
-<p></p>
 
-<h3>C3-PRO Research Kit App</h3>
+<h3>C3-PRO iOS Framework</h3>
 <p>
-    The app, installed on the participant's iPhone, is built on top of Apple <a href="http://www.researchkit.org/" target="_blank">ResearchKit</a>.
-    It captures consent of participants willing to enroll in a study, then handles surveys, interactive tasks and sensory data collection.
+    The C3-PRO iOS framework, written in Swift, adds <a href="http://www.researchkit.org/" target="_blank">ResearchKit</a> functionality to your research app, and then some.
+    Built modularly, you need only use components that are useful to you;
+    for example the <em>Questionnaire</em> handlers, allowing you to hand <a href="http://hl7.org/fhir/questionnaire.html" target="_blank">🔥 Questionnaire</a> resources to ResearchKit for rendering; no need to hand-code surveys!
+</p>
+<p>
+    An app outfitted with C3-PRO captures consent of participants willing to enroll in a study and handles surveys, interactive tasks and sensory data collection.
     Data is captured as FHIR resources and encrypted on-device using AES and public-key RSA algorithms.
     The private key is only known to the researcher's (in-house) server, making decryption impossible on all public-facing parts.
     The FHIR resources currently in use are:
@@ -20,12 +23,13 @@
         <li><a href="http://hl7.org/fhir/contract.html" target="_blank">Contract</a>: captures consent information.</li>
         <li><a href="http://hl7.org/fhir/observation.html" target="_blank">Observation</a>: patient facts, such as gender and weight, extracted from <a href="http://www.apple.com/ios/health/" target="_blank">HealthKit</a>.</li>
         <li><a href="http://hl7.org/fhir/questionnaire.html" target="_blank">Questionnaire</a>: resource consumed by the app from the C3-PRO server.</li>
-        <li><a href="http://hl7.org/fhir/questionnaireanswers.html" target="_blank">QuestionnaireAnswers</a>: codifies activity reports and survey answers.</li>
+        <li><a href="http://hl7.org/fhir/questionnaireresponse.html" target="_blank">QuestionnaireResponse</a>: codifies activity reports and survey answers.</li>
     </ul>
 </p>
 
 <h3>C3-PRO “Receiver” Server</h3>
 <p>
+    Serves as point-of-contact with the app and is the only public-facing part of the toolchain.
     The current release runs in a highly reliable AWS environment to ensure high availability and scalability.
     It's in charge of
 </p>
@@ -40,7 +44,7 @@
 <h3>C3-PRO “Consumer”</h3>
 <p>
     Daemon that runs in-house with highly limited access.
-    Consumes from the SQS queue, decrypts the FHIR resources and sends them into i2b2 using the newly created C3-PRO FHIR i2b2 cell.
+    Consumes from the “receiver”'s SQS queue, decrypts the FHIR resources and sends them into i2b2 using the newly created C3-PRO FHIR i2b2 cell.
     To ensure that all data is recorded properly, encrypted raw data is also stored in-house as BLOB.
 </p>
 
