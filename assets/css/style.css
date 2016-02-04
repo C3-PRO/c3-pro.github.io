@@ -99,6 +99,14 @@ header a {
 	margin: 0 auto;
 }
 
+.citation {
+	white-space: pre-line;
+	padding: 0.8em;
+	font-size: 0.9em; line-height: 130%;
+	border-radius: 2pt;
+	background: rgb(250,250,250) url('images/bg01.png') top left repeat;
+}
+
 .icon.code {
 	display: inline-block;
 	width: 1em; height:1.5em;
@@ -184,6 +192,16 @@ footer p:first-child {
 		padding: 0.5em 20px 0.33em;
 		font-size: 13pt;
 	}
+}
+
+/* column break */
+@media screen and (max-width: 840px) {
+	.sections-do-wrap { display: initial; }
+	.sections-are-columns { display: none; }
+}
+@media screen and (min-width: 840px) {
+	.sections-do-wrap { display: none; }
+	.sections-are-columns { display: initial; }
 }
 
 /* standard */
