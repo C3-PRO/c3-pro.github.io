@@ -99,9 +99,16 @@ header a {
 	margin: 0 auto;
 }
 
+.icon.code {
+	display: inline-block;
+	width: 1em; height:1.5em;
+	margin-right: 0.2em;
+	font-size: 220%; text-align: center; vertical-align: -0.175em;
+}
+
 .icon.fun {
-	display: inline-block; width: 1.5em;
-	height:1.5em;
+	display: inline-block;
+	width: 1.5em; height:1.5em;
 	margin: 0.3em 0.5em 0.3em 0; padding-top: 0.15em;
 	font-size: 140%; text-align: center; vertical-align: -0.125em;
 	color: white; background-color: rgb(57,99,159);

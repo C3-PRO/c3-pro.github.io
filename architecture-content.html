@@ -1,13 +1,17 @@
 <div class="wrap-readable">
-<h2>The C3-PRO Components</h2>
 
+<h2>Architecture</h2>
+<p style="text-align:center; margin-top:0;">
+    <img class="reduced-less" src="images/Architecture.png" srcset="images/Architecture@2x.png 2x, images/Architecture@3x.png 3x" alt="C3-PRO Architecture Diagram">
+</p>
 <p>
-    <img class="reduced-less" src="images/C3-PRO-Architecture.png" alt="C3-PRO Diagram">
+    The interplay between all the C3-PRO components.
+    Since data exchange happens via FHIR Resources (or encrypted versions thereof), you can easily substitute each component with your own solution.
 </p>
 
-<h3>C3-PRO iOS Framework</h3>
+<h2>iOS Research App</h2>
 <p>
-    The C3-PRO iOS framework, written in Swift, adds <a href="http://www.researchkit.org/" target="_blank">ResearchKit</a> functionality to your research app, and then some.
+    The iOS app embeds the <a href="https://github.com/chb/c3-pro-ios-framework" target="_blank">C3-PRO iOS framework</a>, written in Swift, which adds <a href="http://www.researchkit.org/" target="_blank">ResearchKit</a> functionality to your research app, and then some.
     Built modularly, you need only use components that are useful to you;
     for example the <em>Questionnaire</em> handlers, allowing you to hand <a href="http://hl7.org/fhir/questionnaire.html" target="_blank">🔥 Questionnaire</a> resources to ResearchKit for rendering; no need to hand-code surveys!
 </p>
@@ -26,8 +30,12 @@
         <li><a href="http://hl7.org/fhir/questionnaireresponse.html" target="_blank">QuestionnaireResponse</a>: codifies activity reports and survey answers.</li>
     </ul>
 </p>
+<p>
+    <a href="https://github.com/chb/c3-pro-ios-framework"><span class="icon code fa-github"></span> Code on GitHub</a>
+    <a href="https://chb.github.io/c3-pro-ios-framework" style="margin-left:1em;"><span class="icon code fa-book"></span> Technical Documentation</a>
+</p>
 
-<h3>C3-PRO “Receiver” Server</h3>
+<h2>C3-PRO “Receiver” Server</h2>
 <p>
     Serves as point-of-contact with the app and is the only public-facing part of the toolchain.
     The current release runs in a highly reliable AWS environment to ensure high availability and scalability.
@@ -40,17 +48,29 @@
         <li>managing <a href="http://oauthbible.com/">OAuth 2 two-legged</a> authentications to authorize App requests</li>
     </ul>
 </p>
+<p>
+    <a href="https://github.com/chb/c3-pro-server"><span class="icon code fa-github"></span> Code on GitHub</a>
+    <a href="https://chb.github.io/c3-pro-server" style="margin-left:1em;"><span class="icon code fa-book"></span> Technical Documentation</a>
+</p>
 
-<h3>C3-PRO “Consumer”</h3>
+<h2>C3-PRO “Consumer”</h2>
 <p>
     Daemon that runs in-house with highly limited access.
     Consumes from the “receiver”'s SQS queue, decrypts the FHIR resources and sends them into i2b2 using the newly created C3-PRO FHIR i2b2 cell.
     To ensure that all data is recorded properly, encrypted raw data is also stored in-house as BLOB.
 </p>
+<p>
+    <a href="https://github.com/chb/c3-pro-consumer"><span class="icon code fa-github"></span> Code on GitHub</a>
+    <a href="https://chb.github.io/c3-pro-consumer" style="margin-left:1em;"><span class="icon code fa-book"></span> Technical Documentation</a>
+</p>
 
-<h3>C3-PRO FHIR i2b2 Cell</h3>
+<h2>C3-PRO FHIR i2b2 Cell</h2>
 <p>
     An <a href="https://www.i2b2.org/">i2b2</a> <a href="http://hl7.org/fhir/2015May/">FHIR DSTU-2 </a> compliant cell.
     In this first release the cell accepts PUT and POST REST calls for the resources mentioned above, converting them to i2b2 facts.
+</p>
+<p>
+    <a href="https://github.com/chb/i2b2-fhir-cell"><span class="icon code fa-github"></span> Code on GitHub</a>
+    <a href="https://chb.github.io/i2b2-fhir-cell" style="margin-left:1em;"><span class="icon code fa-book"></span> Technical Documentation</a>
 </p>
 </div>
