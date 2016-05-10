@@ -1,0 +1,50 @@
+// fresh styling for the website
+
+@import 'bourbon/bourbon';
+
+html, body {
+	margin: 0; padding: 0;
+	background-color: rgb(238,238,238);
+}
+body {
+	font: normal 400 14pt/1.4 "Georgia Pro", Georgia, serif;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 300;
+}
+p {
+	margin: 0.75em 0 0;
+}
+
+.line {
+	@include display(flex);
+	
+	& > * {
+		@include flex(1);
+	}
+}
+.vcenter {		// apply to same item as .line
+	@include align-items(center);
+}
+
+#intro {
+	padding: 2em 0;
+	font-family: "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300;
+	background: white;
+	
+	h1 {
+		margin-bottom: 0;
+		text-align: left; font-size: 2em; line-height: 135%;
+	}
+	h2 {
+		margin-top: 1em;
+		text-align: left; font-size: 1.4em;
+	}
+	
+	.line {
+		.banner_name {
+			@include flex(2);
+			padding-right: 1em;
+		}
+	}
+}

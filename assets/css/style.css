@@ -83,17 +83,6 @@ header a {
 	font-weight: 400;
 }
 
-#banner {
-	font-family: "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300;
-	background: white;
-}
-#banner header {
-	padding: 1.25em 0;
-}
-#banner img.overview {
-	max-width: 100%;
-}
-
 .wrap-readable {
 	max-width: 48em;
 	margin: 0 auto;
@@ -155,16 +144,7 @@ footer p:first-child {
 	header h1 {
 		margin: 0 0 0.5em;
 	}
-	#banner {
-		height: 18em;
-	}
-	#banner header {
-		padding-left: 15px; padding-right: 15px;
-		font-size: 11pt;
-	}
-	#banner img.overview {
-		padding: 10px 15px;
-	}
+	
 	.institute {
 		width: 220px;
 	}
@@ -206,15 +186,11 @@ footer p:first-child {
 
 /* standard */
 @media screen and (max-width: 1280px) {
-	#banner img.overview {
-		max-height: 12em;
-	}
+	
 }
 
 @media screen and (min-width: 1680px) {
-	#banner {
-		height: 24em;		/* override main.css */
-	}
+	
 	header h1 {
 		margin-bottom: 0;
 		font-size: 1.7em;
