@@ -7,7 +7,6 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<link rel="icon" href="images/favicon.png" type="image/png">
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="assets/css/fresh.css" />
 		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
 		<meta name="msapplication-TileColor" content="rgb(57,99,159)">
 		<meta name="msapplication-TileImage" content="assets/Logo-144.png">
@@ -19,6 +18,7 @@
 		
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 		<link rel="stylesheet" href="assets/css/style.css" />
+		<link rel="stylesheet" href="assets/css/fresh.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 
@@ -42,135 +42,98 @@
 
 		<!-- Banner -->
 		<section id="intro">
-			<div class="container line vcenter">
+			<div class="boxed line vcenter">
 				<div class="banner_img">
 					<img src="images/Logo.png" srcset="images/Logo@2x.png 2x, images/Logo@3x 3x" alt="C3-PRO">
 				</div>
 				<div class="banner_name">
-					<h1>The Consent, Contact and Community framework for Patient Reported Outcomes</h1>
-					<h2>Bridging the gap between <a href="http://researchkit.org/" target="_blank">ResearchKit</a> and <a href="https://www.i2b2.org/" target="_blank">i2b2</a> with <a href="http://www.hl7.org/fhir/" target="_blank">FHIR</a></h2>
-				</div>
+					<h1>The <b>C</b>onsent, <b>C</b>ontact and <b>C</b>ommunity framework for <b>P</b>atient <b>R</b>eported <b>O</b>utcomes</h1>
+					<h2>A set of <a href="http://www.hl7.org/fhir/" target="_blank">FHIR<sup>®</sup></a> compliant software tools for <a href="http://researchkit.org/" target="_blank">ResearchKit</a></h2>
+					</div>
 			</div>
 		</section>
 
 		<!-- Highlights -->
-			<section class="wrapper style2">
-				<div class="container">
-					<div class="row 200%">
-						<section class="4u 12u(narrower)">
-							<div class="box highlight">
-								<i class="icon major fa-cogs"></i>
-								<h3>What is C3-PRO?</h3>
-								<p>C3-PRO is a set of <a href="http://www.hl7.org/fhir/">FHIR</a> compliant software systems that enables integration of data collected via <a href="http://researchkit.org/">ResearchKit</a> into <a href="https://www.i2b2.org/">i2b2</a> in a secure, highly scalable fashion.
-								</p>
-								<p><a href="architecture.html">» Architecture</a></p>
-							</div>
-						</section>
-						<section class="4u 12u(narrower)">
-							<div class="box highlight">
-								<i class="icon major fa-wrench"></i>
-								<h3>For Developers</h3>
-								<p>Source code for all components will be available shortly. We're also setting up a Google Group for discussions and updates. Please, keep checking this page for updates.</p>
-								<p>
-									<a href="https://groups.google.com/forum/#!forum/c3-pro-developers" target="_blank">» Google Group</a></p>
-							</div>
-						</section>
-						<section class="4u 12u(narrower)">
-							<div class="box highlight">
-								<i class="icon major fa-bar-chart"></i>
-								<h3>Used in real studies</h3>
-								<p><em>C&nbsp;Tracker</em> is the first research study utilizing C3-PRO. The study evaluates the impact of hepatitis&nbsp;C on people’s lives by enabling patients to participate from their iPhones.</p>
-								<p>
-									<a href="http://c-tracker.chip.org/">» C&nbsp;Tracker</a>
-								</p>
-							</div>
-						</section>
-					</div>
+		<section class="wrapper style2">
+			<div class="boxed line">
+				<div class="image_top box highlight">
+					<i class="icon major fa-cogs"></i>
+					<h3>What is C3-PRO?</h3>
+					<p>C3-PRO is a set of <a href="http://www.hl7.org/fhir/">FHIR<sup>®</sup></a> compliant software tools and systems that enables integration of data collected via <a href="http://researchkit.org/">ResearchKit</a> into <a href="https://www.i2b2.org/">i2b2</a> in a secure, highly scalable fashion.
+					</p>
+					<p><a class="further_reading" href="architecture.html">» Architecture</a></p>
 				</div>
-			</section>
-
-		<!-- Gigantic Heading -->
-			<section class="wrapper style2">
-				<div class="container">
-					<header class="major">
-						<h2>All the modules you need, on-device and server-side</h2>
-						<p>
-							C3-PRO has you covered. The <em>Swift</em> iOS framework makes life easier for your mobile developers while the “receiver”, “consumer” and i2b2 cell components, written in <em>Java</em>, let your developers hook services together easily.
-							<br>
-							<br>
-							Since data is transferred in either pure <em>FHIR</em> or a very simple JSON format—containing an encrypted FHIR resource—you can substitute any part of C3-PRO with your preferred solution.
-						</p>
-					</header>
+				<div class="image_top box highlight">
+					<i class="icon major fa-wrench"></i>
+					<h3>For Developers</h3>
+					<p>Source code for all components is available on GitHub, see <a href="architecture.html">architecture</a>. We've set up a Google Group for discussions and updates, feel free to stop by and ask questions.</p>
+					<p><a class="further_reading" href="https://groups.google.com/forum/#!forum/c3-pro-developers" target="_blank">» Google Group</a></p>
 				</div>
-			</section>
+				<div class="image_top box highlight">
+					<i class="icon major fa-bar-chart"></i>
+					<h3>Used in real studies</h3>
+					<p><em>C&nbsp;Tracker</em> is the first research study utilizing C3-PRO. The study evaluates the impact of hepatitis&nbsp;C on people’s lives by enabling patients to participate from their iPhones.</p>
+					<p><a class="further_reading" href="http://c-tracker.chip.org/">» C&nbsp;Tracker</a></p>
+				</div>
+			</div>
+		</section>
 
 		<!-- Posts -->
-			<section class="wrapper style1">
-				<div class="container">
-					<h2>Leading Technologies, Combined</h2>
-					<div class="row">
-						<section class="6u 12u(narrower)">
-							<div class="box post">
-								<a href="https://www.i2b2.org/" class="image left"><img class="reduced" src="images/i2b2.png" alt="i2b2" /></a>
-								<div class="inner">
-									<h3>i2b2 Integration</h3>
-									<p>C3-PRO stores gathered data into an institutionally hosted <a href="https://www.i2b2.org/" target="_blank">i2b2</a> instance, the widely adopted scalable <a href="https://en.wikipedia.org/wiki/Data_mining" target="_blank">data mining</a> system for clinical research.</p>
-								</div>
-							</div>
-						</section>
-						<section class="6u 12u(narrower)">
-							<div class="box post">
-								<a href="http://researchkit.org/" class="image left"><img class="reduced-more" src="images/researchkit.jpg" alt="Apple's Research Kit" /></a>
-								<div class="inner">
-									<h3>ResearchKit</h3>
-									<p>C3-PRO uses <a href="http://researchkit.org/" target="_blank">Apple's ResearchKit</a> framework to consent patients and to drive surveys and activity reports directly on patients' iPhones.</p>
-								</div>
-							</div>
-						</section>
+		<section class="wrapper style1">
+			<section class="boxed">
+				<h2>Leading Technologies, Combined</h2>
+				<div class="line">
+					<div class="image_left">
+						<a href="https://www.i2b2.org/" class="image left"><img class="reduced" src="images/i2b2.png" alt="i2b2" /></a>
+						<div class="text">
+							<h3>i2b2 Integration</h3>
+							<p>C3-PRO stores gathered data into an institutionally hosted <a href="https://www.i2b2.org/" target="_blank">i2b2</a> instance, the widely adopted scalable <a href="https://en.wikipedia.org/wiki/Data_mining" target="_blank">data mining</a> system for clinical research.</p>
+						</div>
 					</div>
-					<div class="row">
-						<section class="6u 12u(narrower)">
-							<div class="box post">
-								<a href="http://www.hl7.org/fhir/" class="image left"><img class="reduced" src="images/fhir.png" alt="i2b2" /></a>
-								<div class="inner">
-									<h3>FHIR compliant</h3>
-									<p>C3-PRO subsystems use the <i>FHIR</i> 🔥 standard: from iPhone to i2b2, data is captured and transmitted using <a href="http://hl7.org/fhir/index.html" target="_blank">FHIR</a> resources.</p>
-								</div>
-							</div>
-						</section>
-						<section class="6u 12u(narrower)">
-							<div class="box post">
-								<a href="https://aws.amazon.com/sqs/" class="image left"><img class="reduced" src="images/sqs.png" alt="Apple's Research Kit" /></a>
-								<div class="inner">
-									<h3>Highly scalable and secure</h3>
-									<p>Data is encrypted on the iPhone and temporally stored in highly reliable <a href="https://aws.amazon.com/" target="_blank">AWS</a> instances. The <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)" target="_blank">RSA</a> and <a href="https://es.wikipedia.org/wiki/Advanced_Encryption_Standard" target="_blank">AES</a> cryptography algorithms are used for encryption.</p>
-								</div>
-							</div>
-						</section>
+					<div class="image_left">
+						<a href="http://researchkit.org/" class="image left"><img class="reduced-more" src="images/researchkit.jpg" alt="Apple's Research Kit" /></a>
+						<div class="text">
+							<h3>ResearchKit</h3>
+							<p>C3-PRO uses <a href="http://researchkit.org/" target="_blank">Apple's ResearchKit</a> framework to consent patients and to drive surveys and activity reports directly on participants' iPhones.</p>
+						</div>
 					</div>
 				</div>
-				
-				<div class="container">
-					<h2>Open Source, Open Access</h2>
-					<div class="row">
-						<section class="6u 12u(narrower)">
-							All components of C3-PRO are available open source, <strong>Apache 2</strong> licensed.
-							Head over to the <a href="architecture.html">Architecture</a> page and start prototyping!<br>
-							<br>
-							Presentations, publications, print and online materials should <strong>cite</strong> the <strong>C3-PRO <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0152722" target="_blank">PLoS ONE</a> publication</strong> as shown <span class="sections-do-wrap">below</span><span class="sections-are-columns">to the right</span>.
-							To acknowledge the use of C3-PRO in your software, please refer to the respective <code>NOTICE</code> file.
-						</section>
-						<section class="6u 12u(narrower)">
-							<!--pre class="citation">
-								Pfiffner PB, Pinyol I, Natter MD, Mandl KD. C3-PRO: Connecting Apple's ResearchKit to the Health System using i2b2 and FHIR. PLoS ONE. <i>submitted</i>.
-							</pre-->
-							<pre class="citation">
-								Pfiffner PB, Pinyol I, Natter MD, Mandl KD (2016) C3-PRO: Connecting ResearchKit to the Health System Using i2b2 and FHIR. PLoS ONE 11(3): e0152722. doi:10.1371/journal.pone.0152722.
-							</pre>
-						</section>
+				<div class="line">
+					<div class="image_left">
+						<a href="http://www.hl7.org/fhir/" class="image left"><img class="reduced" src="images/fhir.png" alt="i2b2" /></a>
+						<div class="text">
+							<h3>FHIR<sup>®</sup> compliant</h3>
+							<p>C3-PRO subsystems use the <i>FHIR<sup>®</sup></i> 🔥 standard: from iPhone to i2b2, data is captured and transmitted using <a href="http://hl7.org/fhir/index.html" target="_blank">FHIR</a> resources.</p>
+						</div>
+					</div>
+					<div class="image_left">
+						<a href="https://aws.amazon.com/sqs/" class="image left"><img class="reduced" src="images/sqs.png" alt="Apple's Research Kit" /></a>
+						<div class="text">
+							<h3>Highly scalable and secure</h3>
+							<p>Data is encrypted on the iPhone and temporally stored in highly reliable <a href="https://aws.amazon.com/" target="_blank">AWS</a> instances. The <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)" target="_blank">RSA</a> and <a href="https://es.wikipedia.org/wiki/Advanced_Encryption_Standard" target="_blank">AES</a> cryptography algorithms are used for encryption.</p>
+						</div>
 					</div>
 				</div>
 			</section>
+			
+			<section class="boxed">
+				<h2>Open Source, Open Access</h2>
+				<div class="line vcenter">
+					<div>
+						All components of C3-PRO are available open source, <strong>Apache 2</strong> licensed.
+						Head over to the <a href="architecture.html">architecture</a> page and start prototyping!<br>
+						<br>
+						Presentations, publications, print and online materials should <strong>cite</strong> the <strong>C3-PRO <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0152722" target="_blank">PLoS ONE</a> publication</strong> as shown <span class="sections-do-wrap">below</span><span class="sections-are-columns">to the right</span>.
+						To acknowledge the use of C3-PRO in your software, please refer to the respective <code>NOTICE</code> file.
+					</div>
+					<div>
+						<pre class="citation">
+							Pfiffner PB, Pinyol I, Natter MD, Mandl KD (2016) C3-PRO: Connecting ResearchKit to the Health System Using i2b2 and FHIR. PLoS ONE 11(3): e0152722. doi:10.1371/journal.pone.0152722.
+						</pre>
+					</div>
+				</div>
+			</section>
+		</section>
 
 		<!-- Gigantic Heading -->
 			<section class="wrapper style2">

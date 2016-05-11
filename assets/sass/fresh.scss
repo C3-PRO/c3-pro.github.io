@@ -2,6 +2,10 @@
 
 @import 'bourbon/bourbon';
 
+$color-main:          rgb(255,164,22);
+$color-dark-on-main:  rgb(51,51,51);
+
+
 html, body {
 	margin: 0; padding: 0;
 	background-color: rgb(238,238,238);
@@ -12,13 +16,47 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	font-weight: 300;
 }
+h1, h2, h3 {
+	font-family: "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+h2 {
+	font-size: 1.75em;
+}
+h3 {
+	font-size: 1.4em;
+}
 p {
 	margin: 0.75em 0 0;
 }
+a {
+	color: inherit; text-decoration: none;
+	border-bottom: 1px dotted black;
+	&.further_reading {
+		color: darken($color-main, 6%);
+		border-bottom: none;
+	}
+}
+a:hover {
+	color: $color-main; text-decoration: none;
+	border-bottom: none;
+	&.further_reading {
+		color: lighten($color-main, 10%); text-decoration: underline;
+	}
+}
+a:visited {
+	@include text-decoration-style(dotted);
+}
+sup {
+	top: 0;
+}
 
-.line {
+.boxed {		// only used for width and margin
+	width: auto; max-width: 1200px;
+	margin: 0 auto;
+}
+.line {			// may be the same element as .boxed, so don't fuck with width and margin
 	@include display(flex);
-	
+	margin-bottom: 3em;
 	& > * {
 		@include flex(1);
 	}
@@ -27,14 +65,25 @@ p {
 	@include align-items(center);
 }
 
+#nav {
+	&:after {
+		background: $color-main;
+	}
+	& > ul > li.current:before {
+		background: $color-main;
+	}
+}
+
 #intro {
 	padding: 2em 0;
-	font-family: "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300;
 	background: white;
 	
 	h1 {
 		margin-bottom: 0;
 		text-align: left; font-size: 2em; line-height: 135%;
+		b {
+			font-weight: 500;
+		}
 	}
 	h2 {
 		margin-top: 1em;
@@ -48,3 +97,143 @@ p {
 		}
 	}
 }
+
+.image_left {
+	.image {
+		width: 30%;
+		margin: 0;
+	}
+	.text {
+		margin-left: calc(30% + 1em);
+		*:first-child {
+			margin-top: 0;
+		}
+		h3 {
+			margin-bottom: 0.5em;
+		}
+	}
+}
+.box {		// TODO: replace all .box.highlight with .image_top
+	&.highlight {
+		padding-left: calc(4em + 30px);
+	}
+}
+.icon {
+	&.major, &.fun {
+		color: $color-dark-on-main;
+		background: $color-main;
+	}
+}
+
+
+// MARK: - Dynamic
+
+/* phones */
+@media screen and (max-width: 480px) {
+	body {
+		font-size: 12pt;
+	}
+	h1, h2, h3, h4, h5 {
+		line-height: normal;
+	}
+	.wrapper {
+		padding: 2em 0 1px 0;	// to override main.css
+	}
+	.boxed {
+		margin-left: 15px; margin-right: 15px;
+	}
+	.box {
+		&.highlight {
+			padding-left: calc(4em + 30px);
+		}
+	}
+}
+
+/* tablets and up */
+@media screen and (min-width: 480px) {
+	.navi li {
+		display: inline-block;
+	}
+	.navi li:first-child:before, .navi li:first-child::before {
+		content: "";
+	}
+}
+
+/* tablets */
+@media screen and (min-width: 480px) and (max-width: 1024px) {
+	body {
+		font-size: 12pt;
+	}
+	h1 {
+		font-size: 1.7em;
+	}
+}
+
+/* Layout column break point */
+@media screen and (max-width: 840px) {
+	.boxed {
+		margin-left: 1.75em; margin-right: 1.75em;
+	}
+	.line {
+		display: block;
+		& > * {
+			margin: 2em 0;
+		}
+	}
+	.image_left {
+		.image {
+			width: 6em;
+		}
+		.text {
+			margin-left: 6em;
+		}
+	}
+	.sections-do-wrap { display: initial; }
+	.sections-are-columns { display: none; }
+	#intro {
+		margin-top: 3em;
+	}
+}
+@media screen and (min-width: 840px) {
+	.line > * {
+		margin: 0 1.5em;
+		&:first-child {
+			margin-left: 0;
+		}
+		&:last-child {
+			margin-right: 0;
+		}
+	}
+	.sections-do-wrap { display: none; }
+	.sections-are-columns { display: initial; }
+}
+
+/* Small Desktop */
+@media screen and (max-width: 1024px) {
+	.boxed {
+		margin-left: 2em; margin-right: 2em;
+	}
+}
+
+/* Desktop */
+@media screen and (max-width: 1280px) {
+	.boxed {
+		max-width: 980px;
+	}
+}
+
+/* Large Desktop */
+@media screen and (min-width: 1680px) {
+	.boxed {
+		max-width: 1400px;
+	}
+	#intro {
+		h1 {
+			font-size: 2.25em;
+		}
+		h2 {
+			font-size: 1.6em;
+		}
+	}
+}
+
