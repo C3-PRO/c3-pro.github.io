@@ -4,6 +4,10 @@
 
 $color-main:          rgb(255,164,22);
 $color-dark-on-main:  rgb(51,51,51);
+$color-text:          rgb(51,51,51);
+$color-header:        rgb(51,51,51);
+$color-header-text:   rgb(192,192,192);
+$color-header-high:   white;
 
 
 html, body {
@@ -11,6 +15,7 @@ html, body {
 	background-color: rgb(238,238,238);
 }
 body {
+	color: $color-text;
 	font: normal 400 14pt/1.4 "Georgia Pro", Georgia, serif;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -35,6 +40,8 @@ a {
 		color: darken($color-main, 6%);
 		border-bottom: none;
 	}
+	
+	@include transition(color 0.2s ease-in-out, border-color 0.2s ease-in-out, opacity 0.2s ease-in-out);
 }
 a:hover {
 	color: $color-main; text-decoration: none;
@@ -50,6 +57,11 @@ sup {
 	top: 0;
 }
 
+
+// Main Layout (.wrapper > .boxed (>) .line > .box)
+.wrapper {
+	padding: 3em 0 1em 0;
+}
 .boxed {		// only used for width and margin
 	width: auto; max-width: 1200px;
 	margin: 0 auto;
@@ -64,13 +76,61 @@ sup {
 .vcenter {		// apply to same item as .line
 	@include align-items(center);
 }
+.box {
+	
+	&.highlight {
+		text-align: center;
+		padding-left: 3em;
+	}
+	&.highlight:first-child {
+		padding-left: 0;
+	}
+}
 
 #nav {
-	&:after {
-		background: $color-main;
-	}
-	& > ul > li.current:before {
-		background: $color-main;
+	font-family: "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300;
+	text-align: center;
+	@include linear-gradient(to bottom, rgba(0,0,0,0),rgba(0,0,0,0.3));
+	background-color: $color-header;
+	border-bottom: 0.75em solid $color-main;
+	
+	& > ul {
+		margin: 0; padding: 0;
+		
+		& > li {
+			position: relative; display: inline-block;
+			margin-left: 1em;
+			
+			&:first-child {
+				margin-left: 0;
+			}
+			
+			a {
+				display: block;
+				padding: 1.5em 0.5em 1.35em 0.5em;
+				color: $color-header-text; text-decoration: none;
+				border: none;
+				
+				&:hover {
+					color: $color-header-high;
+				}
+			}
+			&.current {
+				a {
+					color: $color-header-high;
+					font-weight: 400;
+				}
+				&:before {
+					display: block;
+					position: absolute; bottom: -0.5em; left: 50%;
+					content: '';
+					width: 0.75em; height: 0.75em;
+					margin-left: -0.375em;
+					@include transform(rotateZ(45deg));
+					background: $color-main;
+				}
+			}
+		}
 	}
 }
 
@@ -113,15 +173,29 @@ sup {
 		}
 	}
 }
-.box {		// TODO: replace all .box.highlight with .image_top
-	&.highlight {
-		padding-left: calc(4em + 30px);
-	}
-}
+
 .icon {
-	&.major, &.fun {
-		color: $color-dark-on-main;
+	&:before {
+		font-family: FontAwesome;
+		font-style: normal;
+		font-weight: normal;
+		text-transform: none !important;
+	}
+	
+	&.major {
+		display: inline-block;
+		width: 5em; height: 5em; line-height: 5em;
+		margin: 0 0 2em 0;
+		color: $color-dark-on-main; text-align: center;
 		background: $color-main;
+		border-radius: 100%;
+		box-shadow: 0 0 0 7px white, 0 0 0 8px #e0e0e0;
+		
+		&:before {
+			font-size: 36px;
+		}
+	}
+	&.major, &.fun {
 	}
 }
 
