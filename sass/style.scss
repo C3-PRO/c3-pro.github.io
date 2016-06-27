@@ -5,14 +5,16 @@
 $color-main:          rgb(255,164,22);
 $color-dark-on-main:  rgb(51,51,51);
 $color-text:          rgb(51,51,51);
+$color-background:    rgb(238,238,238);
 $color-header:        rgb(51,51,51);
 $color-header-text:   rgb(192,192,192);
 $color-header-high:   white;
+$color-separator:     rgb(160,160,160);
 
 
 html, body {
 	margin: 0; padding: 0;
-	background-color: rgb(238,238,238);
+	background: $color-background url("../images/bg01.png");
 }
 body {
 	color: $color-text;
@@ -58,35 +60,31 @@ sup {
 }
 
 
-// Main Layout (.wrapper > .boxed (>) .line > .box)
+// Main Layout (.wrapper > .boxed (>) .oneline > .box)
 .wrapper {
 	padding: 3em 0 1em 0;
+	background: white;
 }
-.boxed {		// only used for width and margin
+.boxed {        // only used for width and margin
 	width: auto; max-width: 1200px;
 	margin: 0 auto;
 }
-.line {			// may be the same element as .boxed, so don't fuck with width and margin
+.oneline {      // may be the same element as .boxed, so don't fuck with width and margin
 	@include display(flex);
 	margin-bottom: 3em;
 	& > * {
 		@include flex(1);
 	}
+	& > h3 {
+		margin-top: 2em !important; margin-bottom: 1em !important;
+		text-align: center;
+	}
 }
-.vcenter {		// apply to same item as .line
+.vcenter {      // apply to same item as .oneline
 	@include align-items(center);
 }
-.box {
-	
-	&.highlight {
-		text-align: center;
-		padding-left: 3em;
-	}
-	&.highlight:first-child {
-		padding-left: 0;
-	}
-}
 
+// Navigation
 #nav {
 	font-family: "Helvetica Neue Thin", "Helvetica Neue", Helvetica, Arial, sans-serif; font-weight: 300;
 	text-align: center;
@@ -150,7 +148,7 @@ sup {
 		text-align: left; font-size: 1.4em;
 	}
 	
-	.line {
+	.oneline {
 		.banner_name {
 			@include flex(2);
 			padding-right: 1em;
@@ -158,6 +156,7 @@ sup {
 	}
 }
 
+// remove??
 .image_left {
 	.image {
 		width: 30%;
@@ -199,6 +198,55 @@ sup {
 	}
 }
 
+.highlight {
+	text-align: center;
+	padding-left: 3em;
+	
+	&:first-child {
+		padding-left: 0;
+	}
+}
+.column {
+	margin: 0 !important; padding: 2em;
+	border-left: 2pt dashed $color-separator;
+	
+	&:first-child {
+		margin-left: 0; padding-left: 0;
+		border-left: none;
+	}
+	&:last-child {
+		padding-right: 0;
+	}
+}
+
+.citation {
+	white-space: pre-line;
+	padding: 0.8em;
+	font-size: 0.9em; line-height: 130%;
+	border-radius: 2pt;
+	background: rgb(250,250,250) url('../images/bg01.png') top left repeat;
+}
+
+// footer
+footer {
+	min-height: 6em;
+	margin: 0; padding: 2em 0 4em;
+	font-size: 0.8em; text-align: center;
+	border-top: 1px solid $color-separator;
+	
+	a:link, a:hover, a:visited {
+		border: none;
+		-webkit-text-decoration-style: none; text-decoration-style: none;
+	}
+
+	p {
+		margin-top: 2em;
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+}
+
 
 // MARK: - Dynamic
 
@@ -216,10 +264,8 @@ sup {
 	.boxed {
 		margin-left: 15px; margin-right: 15px;
 	}
-	.box {
-		&.highlight {
-			padding-left: calc(4em + 30px);
-		}
+	.highlight {
+		padding-left: calc(4em + 30px);
 	}
 }
 
@@ -248,7 +294,7 @@ sup {
 	.boxed {
 		margin-left: 1.75em; margin-right: 1.75em;
 	}
-	.line {
+	.oneline {
 		display: block;
 		& > * {
 			margin: 2em 0;
@@ -269,7 +315,7 @@ sup {
 	}
 }
 @media screen and (min-width: 840px) {
-	.line > * {
+	.oneline > * {
 		margin: 0 1.5em;
 		&:first-child {
 			margin-left: 0;
