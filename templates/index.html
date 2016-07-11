@@ -45,40 +45,60 @@
 		<h2>Architecture</h2>
 		<p>
 			The C3-PRO toolchain is made up of various software modules living in three areas: embedded into your <i>mobile app</i>, server pieces that live in the <i>www</i>, aka, “wild wild web”, and modules living <i>behind a firewall</i> with access to your backend.
+			Since data exchange happens via FHIR Resources (or encrypted versions thereof), you can easily substitute each component with your own solution.
+		</p>
+		<p style="text-align:center;">
+		    <img src="images/Architecture.png" srcset="images/Architecture@2x.png 2x, images/Architecture@3x.png 3x" alt="C3-PRO Architecture Diagram" style="width:100%; max-width:900px;">
+		</p>
+		<p>
+			The diagram above illustrates the traditional data flow in a C3-PRO environment.
+			On the mobile side, the iOS and Android <i>mobile frameworks</i> facilitate working with ResearchKit and ResearchStack, respectively, sending encrypted data to (and retrieving data from) the <i>receiver server</i> living on the open web.
+			Secure systems, capable of decrypting incoming data, are running behind the institution’s firewall and store data into an <i>i2b2 research backend</i>.
+		<p>
+		<p>
+			From the list <a href="#modules">below</a> you can pick the modules that best suit your needs to design a custom data flow.
 		</p>
 	</div>
-	<div class="boxed oneline">
-		<h3>
-			<img class="section" src="images/section_mobile.png" srcset="images/section_mobile@2x.png 2x, images/section_mobile@3x.png 3x" alt="">
-			Mobile
-		</h3>
-		<h3>
-			<img class="section" src="images/section_www.png" srcset="images/section_www@2x.png 2x, images/section_www@3x.png 3x" alt="">
-			World Wide Web
-		</h3>
-		<h3>
-			<img class="section" src="images/section_backend.png" srcset="images/section_backend@2x.png 2x, images/section_backend@3x.png 3x" alt="">
-			Backend
-		</h3>
-	</div>
+</section>
+
+<!-- Modules -->
+<section id="modules" class="wrapper">
 	<div class="boxed oneline">
 		<div class="column">
-		{%- for module in modules.mobile %}
-			{% include "item_module.html" %}
-		{%- endfor %}
+			<h3>
+				<img class="section" src="images/section_mobile.png" srcset="images/section_mobile@2x.png 2x, images/section_mobile@3x.png 3x" alt="">
+				Mobile
+			</h3>
+			<div>
+			{%- for module in modules.mobile %}
+				{% include "item_module.html" %}
+			{%- endfor %}
+			</div>
 		</div>
 		<div class="column">
-		{%- for module in modules.www %}
-			{% include "item_module.html" %}
-		{%- endfor %}
+			<h3>
+				<img class="section" src="images/section_www.png" srcset="images/section_www@2x.png 2x, images/section_www@3x.png 3x" alt="">
+				WWW
+			</h3>
+			<div>
+			{%- for module in modules.www %}
+				{% include "item_module.html" %}
+			{%- endfor %}
+			</div>
 		</div>
 		<div class="column">
-		{%- for module in modules.backend %}
-			{% include "item_module.html" %}
-		{%- endfor %}
-		{%- for module in modules.storage %}
-			{% include "item_module.html" %}
-		{%- endfor %}
+			<h3>
+				<img class="section" src="images/section_backend.png" srcset="images/section_backend@2x.png 2x, images/section_backend@3x.png 3x" alt="">
+				Backend
+			</h3>
+			<div>
+			{%- for module in modules.backend %}
+				{% include "item_module.html" %}
+			{%- endfor %}
+			{%- for module in modules.storage %}
+				{% include "item_module.html" %}
+			{%- endfor %}
+			</div>
 		</div>
 	</div>
 	

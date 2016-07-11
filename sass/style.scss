@@ -69,21 +69,16 @@ sup {
 .boxed {        // only used for width and margin
 	width: auto; max-width: 1200px;
 	margin: 0 auto;
+	
+	h2:first-child {
+		margin-top: 0;
+	}
 }
 .oneline {      // may be the same element as .boxed, so don't fuck with width and margin
 	@include display(flex);
 	margin-bottom: 3em;
 	& > * {
 		@include flex(1);
-	}
-	& > h3 {
-		margin-top: 2em !important; margin-bottom: 1em !important;
-		text-align: center;
-		
-		img.section {
-			width: 100px; height: 100px;
-			vertical-align: -1.25em;
-		}
 	}
 }
 .vcenter {      // apply to same item as .oneline
@@ -210,16 +205,32 @@ sup {
 		padding-left: 0;
 	}
 }
-.column {
-	margin: 0 !important; padding: 0 2em;
-	border-left: 2pt dashed $color-separator;
+.oneline > .column {
+	margin: 0 !important; padding: 0 !important;
 	
+	& > h3 {
+		margin: 2em 0; padding: 0 2em;
+		text-align: center;
+		
+		img.section {
+			width: 100px; height: 100px;
+			vertical-align: -1.25em;
+		}
+	}
+	& > div {
+		padding: 0 2em;
+		border-left: 2pt dashed $color-separator;
+	}
 	&:first-child {
-		margin-left: 0; padding-left: 0;
-		border-left: none;
+		& > h3, & > div {
+			padding-left: 0;
+			border-left: none;
+		}
 	}
 	&:last-child {
-		padding-right: 0;
+		& > div, & > h3 {
+			padding-right: 0;
+		}
 	}
 }
 
@@ -300,6 +311,9 @@ footer {
 		margin-top: 2em;
 		&:first-child {
 			margin-top: 0;
+		}
+		&.small {
+			font-size: 0.85em;
 		}
 	}
 }
