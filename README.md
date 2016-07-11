@@ -7,8 +7,17 @@ Hosted at [c3-pro.chip.org](http://c3-pro.chip.org).
 Building the Site
 -----------------
 
-The site uses [SASS](http://sass-lang.com/install) and requires [Bourbon](http://bourbon.io).
-To develop the website, install the **sass gem** and let sass update the CSS:
+The site uses [Jinja2]() templates, rendered using a Python script, and uses [SASS](http://sass-lang.com/install) and requires [Bourbon](http://bourbon.io).
+To develop the website, install the **Python requirements**, best into a virtual environment:
+
+```bash
+virtualenv -p python3 env
+. env/bin/activate
+pip install -r requirements.txt
+./build.py
+```
+
+You will need the **sass gem** to let sass update the CSS:
 
 ```bash
 gem install bourbon

@@ -28,7 +28,7 @@
 		<div class="highlight">
 			<i class="icon major fa-wrench"></i>
 			<h3>For Developers</h3>
-			<p>Source code for all components is available on GitHub. We've set up a Google Group for discussions and updates, feel free to stop by and ask questions.</p>
+			<p>Source code for all our modules is available on GitHub. We've set up a Google Group for discussions and updates, feel free to stop by and ask questions.</p>
 			<p><a class="further_reading" href="https://groups.google.com/forum/#!forum/c3-pro-developers" target="_blank">» Google Group</a></p>
 		</div>
 		<div class="highlight">
@@ -39,16 +39,64 @@
 	</div>
 </section>
 
+<!-- Architecture -->
+<section id="architecture" class="wrapper">
+	<div class="boxed">
+		<h2>Architecture</h2>
+		<p>
+			The C3-PRO toolchain is made up of various software modules living in three areas: embedded into your <i>mobile app</i>, server pieces that live in the <i>www</i>, aka, “wild wild web”, and modules living <i>behind a firewall</i> with access to your backend.
+		</p>
+	</div>
+	<div class="boxed oneline">
+		<h3>
+			<img class="section" src="images/section_mobile.png" srcset="images/section_mobile@2x.png 2x, images/section_mobile@3x.png 3x" alt="">
+			Mobile
+		</h3>
+		<h3>
+			<img class="section" src="images/section_www.png" srcset="images/section_www@2x.png 2x, images/section_www@3x.png 3x" alt="">
+			World Wide Web
+		</h3>
+		<h3>
+			<img class="section" src="images/section_backend.png" srcset="images/section_backend@2x.png 2x, images/section_backend@3x.png 3x" alt="">
+			Backend
+		</h3>
+	</div>
+	<div class="boxed oneline">
+		<div class="column">
+		{%- for module in modules.mobile %}
+			{% include "item_module.html" %}
+		{%- endfor %}
+		</div>
+		<div class="column">
+		{%- for module in modules.www %}
+			{% include "item_module.html" %}
+		{%- endfor %}
+		</div>
+		<div class="column">
+		{%- for module in modules.backend %}
+			{% include "item_module.html" %}
+		{%- endfor %}
+		{%- for module in modules.storage %}
+			{% include "item_module.html" %}
+		{%- endfor %}
+		</div>
+	</div>
+	
+	<div class="boxed">
+	{{ architecture }}
+	</div>
+</section>
+
 <!-- Publication -->
 <section id="citation" class="wrapper">
 	<div class="boxed">
 		<h2>Open Source, Open Access</h2>
 		<div class="oneline vcenter">
 			<div>
-				All components of C3-PRO are available open source, <strong>Apache 2</strong> licensed.<br>
+				All our C3-PRO modules are available open source, <strong>Apache 2</strong> licensed.<br>
 				<br>
 				Presentations, publications, print and online materials should <strong>cite</strong> the <strong>C3-PRO <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0152722" target="_blank">PLoS ONE</a> publication</strong> as shown <span class="sections-do-wrap">below</span><span class="sections-are-columns">to the right</span>.
-				To acknowledge the use of C3-PRO in your software, please refer to the respective <code>NOTICE</code> file.
+				To acknowledge the use of C3-PRO in your software, please refer to the <code>NOTICE</code> file in the software repositories that you use.
 			</div>
 			<div>
 				<pre class="citation">
@@ -56,36 +104,6 @@
 				</pre>
 			</div>
 		</div>
-	</div>
-</section>
-
-<!-- Architecture -->
-<section id="architecture" class="wrapper">
-	<div class="boxed">
-		<h2>Architecture</h2>
-		<p>
-			There are various software modules that make up the C3-PRO toolchain, starting with frameworks to be embedded into your <i>mobile app</i>, over server pieces that live in the <i>www</i>, aka, “wild wild web”, to modules living behind a firewall and writing data to your backend.
-		</p>
-	</div>
-	<div class="boxed oneline">
-		<h3>Mobile</h3>
-		<h3>World Wide Web</h3>
-		<h3>In-House</h3>
-	</div>
-	<div class="boxed oneline">
-		<div class="column">
-			Foo
-		</div>
-		<div class="column">
-			Bar
-		</div>
-		<div class="column">
-			Hat
-		</div>
-	</div>
-	
-	<div class="boxed">
-	{{ architecture }}
 	</div>
 </section>
 {% endblock %}

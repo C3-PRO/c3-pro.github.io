@@ -1,0 +1,30 @@
+<div class="module">
+	<h4>{{ module.name }}</h4>
+	{%- if module.author.name %}
+	<p class="author">
+		by <a{% if module.author.web %} href="{{ module.author.web }}" target="_blank"{% endif %}>{{ module.author.name }}</a>
+	</p>
+	{%- endif %}
+	<p>{{ module.short }}</p>
+	{%- if module.technologies %}
+	<div class="tech">
+		{%- for tech in module.technologies %}
+		<span>
+			<img src="images/tech_{{ tech|lower }}.png" srcset="images/tech_{{ tech|lower }}@2x.png 2x, images/tech_{{ tech|lower }}@3x.png 3x" alt="{{ tech }}">
+			<code>{{ tech }}</code>
+		</span>
+		{%- endfor %}
+	</div>
+	{%- endif %}
+	<p class="links">
+	{%- if module.web %}
+		<a href="{{ module.web }}" target=_blank><i class="icon fa-globe"></i> Web</a>
+	{%- endif %}
+	{%- if module.git %}
+		<a href="{{ module.git }}" target=_blank><i class="icon fa-git-square"></i> Code</a>
+	{%- endif %}
+	{%- if module.docs %}
+		<a href="{{ module.docs }}" target=_blank><i class="icon fa-book"></i> Docs</a>
+	{%- endif %}
+	</p>
+</div>

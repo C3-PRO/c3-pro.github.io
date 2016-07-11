@@ -54,7 +54,7 @@
 		<div class="highlight">
 			<i class="icon major fa-wrench"></i>
 			<h3>For Developers</h3>
-			<p>Source code for all components is available on GitHub. We've set up a Google Group for discussions and updates, feel free to stop by and ask questions.</p>
+			<p>Source code for all our modules is available on GitHub. We've set up a Google Group for discussions and updates, feel free to stop by and ask questions.</p>
 			<p><a class="further_reading" href="https://groups.google.com/forum/#!forum/c3-pro-developers" target="_blank">» Google Group</a></p>
 		</div>
 		<div class="highlight">
@@ -65,16 +65,172 @@
 	</div>
 </section>
 
+<!-- Architecture -->
+<section id="architecture" class="wrapper">
+	<div class="boxed">
+		<h2>Architecture</h2>
+		<p>
+			The C3-PRO toolchain is made up of various software modules living in three areas: embedded into your <i>mobile app</i>, server pieces that live in the <i>www</i>, aka, “wild wild web”, and modules living <i>behind a firewall</i> with access to your backend.
+		</p>
+	</div>
+	<div class="boxed oneline">
+		<h3>
+			<img class="section" src="images/section_mobile.png" srcset="images/section_mobile@2x.png 2x, images/section_mobile@3x.png 3x" alt="">
+			Mobile
+		</h3>
+		<h3>
+			<img class="section" src="images/section_www.png" srcset="images/section_www@2x.png 2x, images/section_www@3x.png 3x" alt="">
+			World Wide Web
+		</h3>
+		<h3>
+			<img class="section" src="images/section_backend.png" srcset="images/section_backend@2x.png 2x, images/section_backend@3x.png 3x" alt="">
+			Backend
+		</h3>
+	</div>
+	<div class="boxed oneline">
+		<div class="column">
+			<div class="module">
+	<h4>C3-PRO iOS Framework</h4>
+	<p class="author">
+		by <a href="http://chip.org" target="_blank">CHIP, Boston Children’s Hospital</a>
+	</p>
+	<p><p>This iOS framework allows you to use 🔥FHIR resources directly with ResearchKit.</p></p>
+	<div class="tech">
+		<span>
+			<img src="images/tech_ios.png" srcset="images/tech_ios@2x.png 2x, images/tech_ios@3x.png 3x" alt="iOS">
+			<code>iOS</code>
+		</span>
+		<span>
+			<img src="images/tech_researchkit.png" srcset="images/tech_researchkit@2x.png 2x, images/tech_researchkit@3x.png 3x" alt="ResearchKit">
+			<code>ResearchKit</code>
+		</span>
+		<span>
+			<img src="images/tech_swift.png" srcset="images/tech_swift@2x.png 2x, images/tech_swift@3x.png 3x" alt="Swift">
+			<code>Swift</code>
+		</span>
+		<span>
+			<img src="images/tech_oauth2.png" srcset="images/tech_oauth2@2x.png 2x, images/tech_oauth2@3x.png 3x" alt="OAuth2">
+			<code>OAuth2</code>
+		</span>
+		<span>
+			<img src="images/tech_encryption.png" srcset="images/tech_encryption@2x.png 2x, images/tech_encryption@3x.png 3x" alt="Encryption">
+			<code>Encryption</code>
+		</span>
+	</div>
+	<p class="links">
+		<a href="https://github.com/chb/c3-pro-ios-framework" target=_blank><i class="icon fa-globe"></i> Web</a>
+		<a href="https://github.com/chb/c3-pro-ios-framework.git" target=_blank><i class="icon fa-git-square"></i> Code</a>
+		<a href="http://chb.github.io/c3-pro-ios-framework/" target=_blank><i class="icon fa-book"></i> Docs</a>
+	</p>
+</div>
+		</div>
+		<div class="column">
+			<div class="module">
+	<h4>C3-PRO “Receiver” Server</h4>
+	<p class="author">
+		by <a href="http://chip.org" target="_blank">CHIP, Boston Children’s Hospital</a>
+	</p>
+	<p><p>Serves as point-of-contact with the app and is the only public-facing part of the toolchain.</p></p>
+	<div class="tech">
+		<span>
+			<img src="images/tech_oauth2.png" srcset="images/tech_oauth2@2x.png 2x, images/tech_oauth2@3x.png 3x" alt="OAuth2">
+			<code>OAuth2</code>
+		</span>
+		<span>
+			<img src="images/tech_aws.png" srcset="images/tech_aws@2x.png 2x, images/tech_aws@3x.png 3x" alt="AWS">
+			<code>AWS</code>
+		</span>
+		<span>
+			<img src="images/tech_jboss.png" srcset="images/tech_jboss@2x.png 2x, images/tech_jboss@3x.png 3x" alt="JBoss">
+			<code>JBoss</code>
+		</span>
+		<span>
+			<img src="images/tech_java.png" srcset="images/tech_java@2x.png 2x, images/tech_java@3x.png 3x" alt="Java">
+			<code>Java</code>
+		</span>
+	</div>
+	<p class="links">
+		<a href="https://github.com/chb/c3-pro-server" target=_blank><i class="icon fa-globe"></i> Web</a>
+		<a href="https://github.com/chb/c3-pro-server.git" target=_blank><i class="icon fa-git-square"></i> Code</a>
+		<a href="https://chb.github.io/c3-pro-server/" target=_blank><i class="icon fa-book"></i> Docs</a>
+	</p>
+</div>
+		</div>
+		<div class="column">
+			<div class="module">
+	<h4>C3-PRO “Consumer”</h4>
+	<p class="author">
+		by <a href="http://chip.org" target="_blank">CHIP, Boston Children’s Hospital</a>
+	</p>
+	<p><p>Daemon that runs in-house, consumes from the “receiver”'s SQS queue and decrypts 🔥FHIR resources.</p></p>
+	<div class="tech">
+		<span>
+			<img src="images/tech_aws.png" srcset="images/tech_aws@2x.png 2x, images/tech_aws@3x.png 3x" alt="AWS">
+			<code>AWS</code>
+		</span>
+		<span>
+			<img src="images/tech_jboss.png" srcset="images/tech_jboss@2x.png 2x, images/tech_jboss@3x.png 3x" alt="JBoss">
+			<code>JBoss</code>
+		</span>
+		<span>
+			<img src="images/tech_java.png" srcset="images/tech_java@2x.png 2x, images/tech_java@3x.png 3x" alt="Java">
+			<code>Java</code>
+		</span>
+		<span>
+			<img src="images/tech_encryption.png" srcset="images/tech_encryption@2x.png 2x, images/tech_encryption@3x.png 3x" alt="Encryption">
+			<code>Encryption</code>
+		</span>
+	</div>
+	<p class="links">
+		<a href="https://github.com/chb/c3-pro-consumer" target=_blank><i class="icon fa-globe"></i> Web</a>
+		<a href="https://github.com/chb/c3-pro-consumer.git" target=_blank><i class="icon fa-git-square"></i> Code</a>
+		<a href="http://chb.github.io/c3-pro-consumer/" target=_blank><i class="icon fa-book"></i> Docs</a>
+	</p>
+</div>
+			<div class="module">
+	<h4>i2b2 FHIR Cell</h4>
+	<p class="author">
+		by <a href="http://chip.org" target="_blank">CHIP, Boston Children’s Hospital</a>
+	</p>
+	<p><p>A 🔥FHIR DSTU-2 compliant cell for i2b2.</p></p>
+	<div class="tech">
+		<span>
+			<img src="images/tech_i2b2.png" srcset="images/tech_i2b2@2x.png 2x, images/tech_i2b2@3x.png 3x" alt="i2b2">
+			<code>i2b2</code>
+		</span>
+		<span>
+			<img src="images/tech_jboss.png" srcset="images/tech_jboss@2x.png 2x, images/tech_jboss@3x.png 3x" alt="JBoss">
+			<code>JBoss</code>
+		</span>
+		<span>
+			<img src="images/tech_java.png" srcset="images/tech_java@2x.png 2x, images/tech_java@3x.png 3x" alt="Java">
+			<code>Java</code>
+		</span>
+	</div>
+	<p class="links">
+		<a href="https://github.com/chb/i2b2-fhir-cell" target=_blank><i class="icon fa-globe"></i> Web</a>
+		<a href="https://github.com/chb/i2b2-fhir-cell.git" target=_blank><i class="icon fa-git-square"></i> Code</a>
+		<a href="https://chb.github.io/i2b2-fhir-cell/" target=_blank><i class="icon fa-book"></i> Docs</a>
+	</p>
+</div>
+		</div>
+	</div>
+	
+	<div class="boxed">
+	
+	</div>
+</section>
+
 <!-- Publication -->
 <section id="citation" class="wrapper">
 	<div class="boxed">
 		<h2>Open Source, Open Access</h2>
 		<div class="oneline vcenter">
 			<div>
-				All components of C3-PRO are available open source, <strong>Apache 2</strong> licensed.<br>
+				All our C3-PRO modules are available open source, <strong>Apache 2</strong> licensed.<br>
 				<br>
 				Presentations, publications, print and online materials should <strong>cite</strong> the <strong>C3-PRO <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0152722" target="_blank">PLoS ONE</a> publication</strong> as shown <span class="sections-do-wrap">below</span><span class="sections-are-columns">to the right</span>.
-				To acknowledge the use of C3-PRO in your software, please refer to the respective <code>NOTICE</code> file.
+				To acknowledge the use of C3-PRO in your software, please refer to the <code>NOTICE</code> file in the software repositories that you use.
 			</div>
 			<div>
 				<pre class="citation">
@@ -82,36 +238,6 @@
 				</pre>
 			</div>
 		</div>
-	</div>
-</section>
-
-<!-- Architecture -->
-<section id="architecture" class="wrapper">
-	<div class="boxed">
-		<h2>Architecture</h2>
-		<p>
-			There are various software modules that make up the C3-PRO toolchain, starting with frameworks to be embedded into your <i>mobile app</i>, over server pieces that live in the <i>www</i>, aka, “wild wild web”, to modules living behind a firewall and writing data to your backend.
-		</p>
-	</div>
-	<div class="boxed oneline">
-		<h3>Mobile</h3>
-		<h3>World Wide Web</h3>
-		<h3>In-House</h3>
-	</div>
-	<div class="boxed oneline">
-		<div class="column">
-			Foo
-		</div>
-		<div class="column">
-			Bar
-		</div>
-		<div class="column">
-			Hat
-		</div>
-	</div>
-	
-	<div class="boxed">
-	
 	</div>
 </section>
 
