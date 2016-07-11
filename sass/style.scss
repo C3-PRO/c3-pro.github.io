@@ -65,6 +65,10 @@ sup {
 .wrapper {
 	padding: 3em 0 1em 0;
 	background: white;
+	
+	&:last-of-type {
+		padding-bottom: 3em;
+	}
 }
 .boxed {        // only used for width and margin
 	width: auto; max-width: 1200px;
@@ -76,7 +80,6 @@ sup {
 }
 .oneline {      // may be the same element as .boxed, so don't fuck with width and margin
 	@include display(flex);
-	margin-bottom: 3em;
 	& > * {
 		@include flex(1);
 	}
@@ -153,23 +156,6 @@ sup {
 		.banner_name {
 			@include flex(2);
 			padding-right: 1em;
-		}
-	}
-}
-
-// remove??
-.image_left {
-	.image {
-		width: 30%;
-		margin: 0;
-	}
-	.text {
-		margin-left: calc(30% + 1em);
-		*:first-child {
-			margin-top: 0;
-		}
-		h3 {
-			margin-bottom: 0.5em;
 		}
 	}
 }
@@ -298,7 +284,7 @@ sup {
 // footer
 footer {
 	min-height: 6em;
-	margin: 0; padding: 2em 0 4em;
+	margin: 0; padding: 2em 1em 4em;
 	font-size: 0.8em; text-align: center;
 	border-top: 1px solid $color-separator;
 	
@@ -306,7 +292,6 @@ footer {
 		border: none;
 		-webkit-text-decoration-style: none; text-decoration-style: none;
 	}
-
 	p {
 		margin-top: 2em;
 		&:first-child {
@@ -316,76 +301,57 @@ footer {
 			font-size: 0.85em;
 		}
 	}
+	.institute {
+		width: 100%; max-width: 320px;
+	}
 }
 
 
 // MARK: - Dynamic
 
-/* phones */
-@media screen and (max-width: 480px) {
-	body {
-		font-size: 12pt;
-	}
-	h1, h2, h3, h4, h5 {
-		line-height: normal;
-	}
-	.wrapper {
-		padding: 2em 0 1px 0;	// to override main.css
-	}
-	.boxed {
-		margin-left: 15px; margin-right: 15px;
-	}
-	.highlight {
-		padding-left: calc(4em + 30px);
-	}
-}
-
-/* tablets and up */
-@media screen and (min-width: 480px) {
-	.navi li {
-		display: inline-block;
-	}
-	.navi li:first-child:before, .navi li:first-child::before {
-		content: "";
-	}
-}
-
-/* tablets */
-@media screen and (min-width: 480px) and (max-width: 1024px) {
-	body {
-		font-size: 12pt;
-	}
-	h1 {
-		font-size: 1.7em;
-	}
-}
-
 /* Layout column break point */
-@media screen and (max-width: 840px) {
+@media screen and (max-width: 720px) {
 	.boxed {
 		margin-left: 1.75em; margin-right: 1.75em;
 	}
 	.oneline {
 		display: block;
 		& > * {
+			display: block;
 			margin: 2em 0;
 		}
+		& > .column {
+			& > h3, & > div {
+				padding: 0;
+				border-left: none;
+			}
+			& > h3 {
+				margin: 1em 0;
+			}
+		}
 	}
-	.image_left {
-		.image {
-			width: 6em;
+	.highlight {
+		padding-left: 0;
+		p {
+			text-align: left;
 		}
-		.text {
-			margin-left: 6em;
+	}
+	.icon.major {
+		margin: 2.5em 0 0.5em;;
+	}
+	.highlight:first-child {
+		margin-top: 0;
+		.icon.major {
+			margin-top: 0;
 		}
+	}
+	.module p {
+		font-size: 1em;
 	}
 	.sections-do-wrap { display: initial; }
 	.sections-are-columns { display: none; }
-	#intro {
-		margin-top: 3em;
-	}
 }
-@media screen and (min-width: 840px) {
+@media screen and (min-width: 720px) {
 	.oneline > * {
 		margin: 0 1.5em;
 		&:first-child {
@@ -399,17 +365,87 @@ footer {
 	.sections-are-columns { display: initial; }
 }
 
-/* Small Desktop */
-@media screen and (max-width: 1024px) {
-	.boxed {
-		margin-left: 2em; margin-right: 2em;
-	}
-}
 
 /* Desktop */
 @media screen and (max-width: 1280px) {
 	.boxed {
 		max-width: 980px;
+	}
+}
+
+/* Small desktop, tablets and phones */
+@media screen and (max-width: 1024px) {
+	.boxed {
+		margin-left: 2em; margin-right: 2em;
+	}
+	.oneline > .column > h3 {
+		img.section {
+			width: 50px; height: 50px;
+			vertical-align: -0.6em;
+		}
+	}
+	.module {
+		.tech > span {
+			font-size: 0.7em;
+			img {
+				width: 13px; height: 13px;
+				margin: 3px;
+			}
+		}
+		.links > a .icon {
+			font-size: 120%; vertical-align: -0.075em;
+		}
+	}
+}
+
+/* Phones */
+@media screen and (max-width: 480px) {
+	body {
+		font-size: 11pt;
+	}
+	h1, h2, h3, h4, h5 {
+		line-height: normal;
+	}
+	.wrapper {
+		padding: 2em 0 1px 0;	// 1px to prevent body bg shine through
+	}
+	.boxed {
+		margin-left: 15px; margin-right: 15px;
+	}
+}
+
+/* Tablets and up */
+@media screen and (min-width: 480px) {
+	.navi li {
+		display: inline-block;
+	}
+	.navi li:first-child:before, .navi li:first-child::before {
+		content: "";
+	}
+}
+
+/* Tablets */
+@media screen and (min-width: 480px) and (max-width: 1024px) {
+	body {
+		font-size: 12pt;
+	}
+	h1 {
+		font-size: 1.7em;
+	}
+	.highlight {
+		padding-left: 0;
+		h3 {
+			margin: 0 0 0.75em;
+		}
+	}
+	.oneline > .column {
+		& > h3 {
+			margin: 0 0 1.5em;
+		}
+		& > div {
+			padding: 0 1em;
+			border-width: 1pt;
+		}
 	}
 }
 
