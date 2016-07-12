@@ -81,7 +81,7 @@ sup {
 .oneline {      // may be the same element as .boxed, so don't fuck with width and margin
 	@include display(flex);
 	& > * {
-		@include flex(1);
+		@include flex(1 1);
 	}
 }
 .vcenter {      // apply to same item as .oneline
@@ -141,22 +141,26 @@ sup {
 	background: white;
 	
 	h1 {
-		margin-bottom: 0;
+		margin: 0;
 		text-align: left; font-size: 2em; line-height: 135%;
 		b {
 			font-weight: 500;
 		}
 	}
 	h2 {
-		margin-top: 1em;
+		margin: 1em 0 0;
 		text-align: left; font-size: 1.4em;
 	}
 	
-	.oneline {
-		.banner_name {
-			@include flex(2);
-			padding-right: 1em;
+	.banner_img {
+		@include display(flex);
+		@include align-items(flex-end);
+		img {
+			max-width: 100%;
 		}
+		}
+	.banner_name {
+		@include flex(2 2);
 	}
 }
 
@@ -175,7 +179,7 @@ sup {
 		color: $color-dark-on-main; text-align: center;
 		background: $color-main;
 		border-radius: 100%;
-		box-shadow: 0 0 0 7px white, 0 0 0 10px #e0e0e0;
+		box-shadow: 0 0 0 7px white, 0 0 0 10px $color-header-text;
 		
 		&:before {
 			font-size: 36px;

@@ -1,18 +1,24 @@
 {% extends "base.html" %}
+{% set current_page = "index" %}
 
 {% block title %}C3-PRO{% endblock %}
 
 {% block content %}
 <!-- Banner -->
 <section id="intro">
-	<div class="boxed oneline vcenter">
+	<div class="boxed oneline">
 		<div class="banner_img">
 			<img src="images/Logo.png" srcset="images/Logo@2x.png 2x, images/Logo@3x 3x" alt="C3-PRO">
 		</div>
 		<div class="banner_name">
 			<h1>The <b>C</b>onsent, <b>C</b>ontact and <b>C</b>ommunity framework for <b>P</b>atient <b>R</b>eported <b>O</b>utcomes</h1>
+		</div>
+	</div>
+	<div class="boxed oneline">
+		<div></div>
+		<div class="banner_name">
 			<h2>A set of <a href="http://www.hl7.org/fhir/" target="_blank">FHIR<sup>®</sup></a> compliant research software tools for <a href="http://researchkit.org/" target="_blank">ResearchKit</a> and <a href="http://researchstack.org/" target="_blank">ResearchStack</a></h2>
-			</div>
+		</div>
 	</div>
 </section>
 

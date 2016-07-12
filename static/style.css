@@ -31,7 +31,7 @@ sup { top: 0; }
 .boxed h2:first-child { margin-top: 0; }
 
 .oneline { display: -webkit-box; display: -moz-box; display: box; display: -webkit-flex; display: -moz-flex; display: -ms-flexbox; display: flex; }
-.oneline > * { -webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1; -webkit-flex: 1; -moz-flex: 1; -ms-flex: 1; flex: 1; }
+.oneline > * { -webkit-box-flex: 1; -moz-box-flex: 1; box-flex: 1; -webkit-flex: 1 1; -moz-flex: 1 1; -ms-flex: 1 1; flex: 1 1; }
 
 .vcenter { -webkit-box-align: center; -moz-box-align: center; box-align: center; -webkit-align-items: center; -moz-align-items: center; -ms-align-items: center; -o-align-items: center; align-items: center; -ms-flex-align: center; }
 
@@ -45,13 +45,15 @@ sup { top: 0; }
 #nav > ul > li.current:before { display: block; position: absolute; bottom: -0.5em; left: 50%; content: ''; width: 0.75em; height: 0.75em; margin-left: -0.375em; -webkit-transform: rotateZ(45deg); -moz-transform: rotateZ(45deg); -ms-transform: rotateZ(45deg); -o-transform: rotateZ(45deg); transform: rotateZ(45deg); background: #ffa416; }
 
 #intro { padding: 2em 0; background: white; }
-#intro h1 { margin-bottom: 0; text-align: left; font-size: 2em; line-height: 135%; }
+#intro h1 { margin: 0; text-align: left; font-size: 2em; line-height: 135%; }
 #intro h1 b { font-weight: 500; }
-#intro h2 { margin-top: 1em; text-align: left; font-size: 1.4em; }
-#intro .oneline .banner_name { -webkit-box-flex: 2; -moz-box-flex: 2; box-flex: 2; -webkit-flex: 2; -moz-flex: 2; -ms-flex: 2; flex: 2; padding-right: 1em; }
+#intro h2 { margin: 1em 0 0; text-align: left; font-size: 1.4em; }
+#intro .banner_img { display: -webkit-box; display: -moz-box; display: box; display: -webkit-flex; display: -moz-flex; display: -ms-flexbox; display: flex; -webkit-box-align: end; -moz-box-align: end; box-align: end; -webkit-align-items: flex-end; -moz-align-items: flex-end; -ms-align-items: flex-end; -o-align-items: flex-end; align-items: flex-end; -ms-flex-align: end; }
+#intro .banner_img img { max-width: 100%; }
+#intro .banner_name { -webkit-box-flex: 2; -moz-box-flex: 2; box-flex: 2; -webkit-flex: 2 2; -moz-flex: 2 2; -ms-flex: 2 2; flex: 2 2; }
 
 .icon:before { font-family: FontAwesome; font-style: normal; font-weight: normal; text-transform: none !important; }
-.icon.major { display: inline-block; width: 5em; height: 5em; line-height: 5em; margin: 0 0 2em 0; color: #333333; text-align: center; background: #ffa416; border-radius: 100%; box-shadow: 0 0 0 7px white, 0 0 0 10px #e0e0e0; }
+.icon.major { display: inline-block; width: 5em; height: 5em; line-height: 5em; margin: 0 0 2em 0; color: #333333; text-align: center; background: #ffa416; border-radius: 100%; box-shadow: 0 0 0 7px white, 0 0 0 10px silver; }
 .icon.major:before { font-size: 36px; }
 
 .highlight { text-align: center; padding-left: 3em; }
