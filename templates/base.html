@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>{{ title|default("C3-PRO") }}</title>
+		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0">
+
+		<link rel="icon" href="images/favicon.png" type="image/png">
+		<link rel="apple-touch-icon" sizes="76x76" href="images/Logo-76.png"><!-- non-retina iPad iOS 7+ -->
+		<link rel="apple-touch-icon" sizes="120x120" href="images/Logo-60@2x.png"><!-- retina iPhones @2x iOS 7+ -->
+		<link rel="apple-touch-icon" sizes="152x152" href="images/Logo-76@2x.png"><!-- retina iPads iOS 7+ -->
+		<link rel="apple-touch-icon" sizes="180x180" href="images/Logo-60@3x.png"><!-- retina iPhones @3x iOS 7+ -->
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="msapplication-TileColor" content="rgb(57,99,159)">
+		<meta name="msapplication-TileImage" content="images/Logo-144.png">
+		
+		<link rel="stylesheet" href="static/font-awesome.min.css" />
+		<link rel="stylesheet" href="static/style.css" />
+	</head>
+	<body>
+		<header>
+			<nav id="nav">
+				<ul>
+					{%- set navigation = [
+						("index", "index.html", "C3-PRO"),
+						("team", "team.html", "Team"),
+						("github", "http://github.com/C3-PRO/", "Github"),
+						("c-tracker", "http://c-tracker.chip.org/", "C&nbsp;Tracker"),
+					] %}
+					{%- for page, href, title in navigation %}
+					<li{% if page == current_page %} class="current"{% endif %}>
+						<a href="{{ href }}"{% if "http" == href[:4] %} target="_blank"{% endif %}>{{ title }}</a>
+					</li>
+					{%- endfor %}
+				</ul>
+			</nav>
+		</header>
+		
+		{%- block content %}
+		{%- endblock %}
+		
+		{%- include "footer.html" %}
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	</body>
+</html>

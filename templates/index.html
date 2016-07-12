@@ -1,0 +1,141 @@
+{% extends "base.html" %}
+{% set current_page = "index" %}
+
+{% block title %}C3-PRO{% endblock %}
+
+{% block content %}
+<!-- Banner -->
+<section id="intro">
+	<div class="boxed oneline">
+		<div class="banner_img">
+			<img src="images/Logo.png" srcset="images/Logo@2x.png 2x, images/Logo@3x 3x" alt="C3-PRO">
+		</div>
+		<div class="banner_name">
+			<h1>The <b>C</b>onsent, <b>C</b>ontact and <b>C</b>ommunity framework for <b>P</b>atient <b>R</b>eported <b>O</b>utcomes</h1>
+		</div>
+	</div>
+	<div class="boxed oneline">
+		<div></div>
+		<div class="banner_name">
+			<h2>A set of <a href="http://www.hl7.org/fhir/" target="_blank">FHIR<sup>®</sup></a> compliant research software tools for <a href="http://researchkit.org/" target="_blank">ResearchKit</a> and <a href="http://researchstack.org/" target="_blank">ResearchStack</a></h2>
+		</div>
+	</div>
+</section>
+
+<!-- Highlights -->
+<section id="whatis" class="wrapper">
+	<div class="boxed oneline">
+		<div class="highlight">
+			<i class="icon major fa-cogs"></i>
+			<h3>What is C3-PRO?</h3>
+			<p>C3-PRO is a set of <a href="http://www.hl7.org/fhir/">FHIR<sup>®</sup></a> compliant software tools and systems that enables integration of biomedical research data collected via <a href="http://researchkit.org/">ResearchKit</a> and <a href="http://researchstack.org/" target="_blank">ResearchStack</a> into <a href="https://www.i2b2.org/">i2b2</a> and other databases in a secure, highly scalable fashion.
+			</p>
+		</div>
+		<div class="highlight">
+			<i class="icon major fa-wrench"></i>
+			<h3>For Developers</h3>
+			<p>Source code for all our modules is available on GitHub. We've set up a Google Group for discussions and updates, feel free to stop by and ask questions.</p>
+			<p><a class="further_reading" href="https://groups.google.com/forum/#!forum/c3-pro-developers" target="_blank">» Google Group</a></p>
+		</div>
+		<div class="highlight">
+			<i class="icon major fa-cubes"></i>
+			<h3>Modules!</h3>
+			<p>The ecosystem supporting mobile research is expanding, and the list of modules that plug in to C3-PRO is growing. See the <a href="#architecture">architecture</a> overview below to find software modules that suit your needs.</p>
+		</div>
+	</div>
+</section>
+
+<!-- Architecture -->
+<section id="architecture" class="wrapper">
+	<div class="boxed">
+		<h2>Architecture</h2>
+		<p>
+			The C3-PRO toolchain is made up of various software modules living in three areas: embedded into your <i>mobile app</i>, server-side pieces that live openly on the <i>www</i>, and modules living <i>behind a firewall</i>, with access to your backend.
+		</p>
+		<p>
+			Since data exchange happens via FHIR Resources (or encrypted versions thereof), you can easily substitute each component with your own solution.
+			You may also just use parts of the toolchain.
+			Our mobile frameworks for example greatly simplify working with ResearchKit and ResearchStack.
+		</p>
+		<p style="text-align:center;">
+		    <a href="images/Architecture@2x.png">
+		    	<img src="images/Architecture.png" srcset="images/Architecture@2x.png 2x, images/Architecture@3x.png 3x" alt="C3-PRO Architecture Diagram" style="width:100%; max-width:900px;">
+	    	</a>
+		</p>
+		<p>
+			The diagram above illustrates the traditional data flow in a C3-PRO environment.
+			On the mobile side, the iOS and Android <i>mobile frameworks</i> facilitate working with ResearchKit and ResearchStack, respectively, sending encrypted data to (and retrieving data from) the <i>receiver server</i> living on the open web.
+			Secure systems, capable of decrypting incoming data, are running behind the institution’s firewall and store data into an <i>i2b2 research backend</i>.
+		<p>
+		<p>
+			From the list <a href="#modules">below</a> you can pick the modules that best suit your needs to design a custom data flow.
+		</p>
+	</div>
+</section>
+
+<!-- Modules -->
+<section id="modules" class="wrapper">
+	<div class="boxed oneline">
+		<div class="column">
+			<h3>
+				<img class="section" src="images/section_mobile.png" srcset="images/section_mobile@2x.png 2x, images/section_mobile@3x.png 3x" alt="">
+				Mobile
+			</h3>
+			<div>
+			{%- for module in modules.mobile %}
+				{% include "item_module.html" %}
+			{%- endfor %}
+			</div>
+		</div>
+		<div class="column">
+			<h3>
+				<img class="section" src="images/section_www.png" srcset="images/section_www@2x.png 2x, images/section_www@3x.png 3x" alt="">
+				WWW
+			</h3>
+			<div>
+			{%- for module in modules.www %}
+				{% include "item_module.html" %}
+			{%- endfor %}
+			</div>
+		</div>
+		<div class="column">
+			<h3>
+				<img class="section" src="images/section_backend.png" srcset="images/section_backend@2x.png 2x, images/section_backend@3x.png 3x" alt="">
+				Backend
+			</h3>
+			<div>
+			{%- for module in modules.backend %}
+				{% include "item_module.html" %}
+			{%- endfor %}
+			{%- for module in modules.storage %}
+				{% include "item_module.html" %}
+			{%- endfor %}
+			</div>
+		</div>
+	</div>
+	
+	<div class="boxed">
+	{{ architecture }}
+	</div>
+</section>
+
+<!-- Publication -->
+<section id="citation" class="wrapper">
+	<div class="boxed">
+		<h2>Open Source, Open Access</h2>
+		<div class="oneline vcenter">
+			<div>
+				All our C3-PRO modules are available open source, <strong>Apache 2</strong> licensed.<br>
+				<br>
+				Presentations, publications, print and online materials should <strong>cite</strong> the <strong>C3-PRO <a href="http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0152722" target="_blank">PLoS ONE</a> publication</strong> as shown <span class="sections-do-wrap">below</span><span class="sections-are-columns">to the right</span>.
+				To acknowledge the use of C3-PRO in your software, please refer to the <code>NOTICE</code> file in the software repositories that you use.
+			</div>
+			<div>
+				<pre class="citation">
+					Pfiffner PB, Pinyol I, Natter MD, Mandl KD (2016) C3-PRO: Connecting ResearchKit to the Health System Using i2b2 and FHIR. PLoS ONE 11(3): e0152722. doi:10.1371/journal.pone.0152722.
+				</pre>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
