@@ -84,8 +84,12 @@
 	<div class="boxed">
 		<h2>Architecture</h2>
 		<p>
-			The C3-PRO toolchain is made up of various software modules living in three areas: embedded into your <i>mobile app</i>, server pieces that live in the <i>www</i>, aka, “wild wild web”, and modules living <i>behind a firewall</i> with access to your backend.
+			The C3-PRO toolchain is made up of various software modules living in three areas: embedded into your <i>mobile app</i>, server-side pieces that live openly on the <i>www</i>, and modules living <i>behind a firewall</i>, with access to your backend.
+		</p>
+		<p>
 			Since data exchange happens via FHIR Resources (or encrypted versions thereof), you can easily substitute each component with your own solution.
+			You may also just use parts of the toolchain.
+			Our mobile frameworks for example greatly simplify working with ResearchKit and ResearchStack.
 		</p>
 		<p style="text-align:center;">
 		    <a href="images/Architecture@2x.png">
@@ -112,6 +116,31 @@
 				Mobile
 			</h3>
 			<div>
+				<div class="module">
+	<h4>C3-PRO Android Framework</h4>
+	<p class="author">
+		by <a href="http://www.usz.ch" target="_blank">MHC, University Hospital Zurich</a>
+	</p>
+	<p><p>This framework uses the HAPI 🔥FHIR library and ResearchStack to bring C3-PRO to Android.</p></p>
+	<div class="tech">
+		<span>
+			<img src="images/tech_android.png" srcset="images/tech_android@2x.png 2x, images/tech_android@3x.png 3x" alt="Android">
+			<code>Android</code>
+		</span>
+		<span>
+			<img src="images/tech_researchstack.png" srcset="images/tech_researchstack@2x.png 2x, images/tech_researchstack@3x.png 3x" alt="ResearchStack">
+			<code>ResearchStack</code>
+		</span>
+		<span>
+			<img src="images/tech_java.png" srcset="images/tech_java@2x.png 2x, images/tech_java@3x.png 3x" alt="Java">
+			<code>Java</code>
+		</span>
+	</div>
+	<p class="links">
+		<a href="https://github.com/C3-PRO/c3-pro-android-framework" target=_blank><i class="icon fa-globe"></i> Web</a>
+		<a href="https://github.com/C3-PRO/c3-pro-android-framework.git" target=_blank><i class="icon fa-git-square"></i> Code</a>
+	</p>
+</div>
 				<div class="module">
 	<h4>C3-PRO iOS Framework</h4>
 	<p class="author">
@@ -141,9 +170,9 @@
 		</span>
 	</div>
 	<p class="links">
-		<a href="https://github.com/chb/c3-pro-ios-framework" target=_blank><i class="icon fa-globe"></i> Web</a>
-		<a href="https://github.com/chb/c3-pro-ios-framework.git" target=_blank><i class="icon fa-git-square"></i> Code</a>
-		<a href="http://chb.github.io/c3-pro-ios-framework/" target=_blank><i class="icon fa-book"></i> Docs</a>
+		<a href="https://github.com/C3-PRO/c3-pro-ios-framework" target=_blank><i class="icon fa-globe"></i> Web</a>
+		<a href="https://github.com/C3-PRO/c3-pro-ios-framework.git" target=_blank><i class="icon fa-git-square"></i> Code</a>
+		<a href="http://c3-pro.github.io/c3-pro-ios-framework/" target=_blank><i class="icon fa-book"></i> Docs</a>
 	</p>
 </div>
 			</div>
@@ -179,9 +208,9 @@
 		</span>
 	</div>
 	<p class="links">
-		<a href="https://github.com/chb/c3-pro-server" target=_blank><i class="icon fa-globe"></i> Web</a>
-		<a href="https://github.com/chb/c3-pro-server.git" target=_blank><i class="icon fa-git-square"></i> Code</a>
-		<a href="https://chb.github.io/c3-pro-server/" target=_blank><i class="icon fa-book"></i> Docs</a>
+		<a href="https://github.com/C3-PRO/c3-pro-server" target=_blank><i class="icon fa-globe"></i> Web</a>
+		<a href="https://github.com/C3-PRO/c3-pro-server.git" target=_blank><i class="icon fa-git-square"></i> Code</a>
+		<a href="https://c3-pro.github.io/c3-pro-server/" target=_blank><i class="icon fa-book"></i> Docs</a>
 	</p>
 </div>
 			</div>
@@ -217,9 +246,9 @@
 		</span>
 	</div>
 	<p class="links">
-		<a href="https://github.com/chb/c3-pro-consumer" target=_blank><i class="icon fa-globe"></i> Web</a>
-		<a href="https://github.com/chb/c3-pro-consumer.git" target=_blank><i class="icon fa-git-square"></i> Code</a>
-		<a href="http://chb.github.io/c3-pro-consumer/" target=_blank><i class="icon fa-book"></i> Docs</a>
+		<a href="https://github.com/C3-PRO/c3-pro-consumer" target=_blank><i class="icon fa-globe"></i> Web</a>
+		<a href="https://github.com/C3-PRO/c3-pro-consumer.git" target=_blank><i class="icon fa-git-square"></i> Code</a>
+		<a href="http://c3-pro.github.io/c3-pro-consumer/" target=_blank><i class="icon fa-book"></i> Docs</a>
 	</p>
 </div>
 				<div class="module">
