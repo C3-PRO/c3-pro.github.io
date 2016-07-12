@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% set current_page = "team" %}
+
+{% block title %}C3-PRO Team{% endblock %}
+
+{% block content %}
+<section id="team" class="wrapper">
+	<div class="boxed">
+		<h2>Meet the Team</h2>
+	</div>
+	<div class="boxed oneline">
+		<p>
+		    The original toolchain has been conceptualized, designed and implemented at the <a href="http://wwwchip.org" target="_blank"><i>Computational Health Informatics Program</i></a> (CHIP) at <a href="http://www.childrenshospital.org" target="_blank"><i>Boston Children’s Hospital</i></a>.
+		    It has been guided by the needs to realize our <a href="http://c-tracker.chip.org" target="_blank">C&nbsp;Tracker</a> study.
+		    The team has expanded to the <a href="http://www.usz.ch" target="_blank"><i>University Hospital Zurich</i></a> and is now running from both these places.
+		</p>
+		{%- set team_list = [
+			("Kenneth Mandl", "photo_ken", "http://scholar.harvard.edu/mandl"),
+			("Pascal Pfiffner", "photo_pp", "http://scholar.harvard.edu/pfiffner"),
+			("Isaac Pinyol", "photo_isaac", "https://www.linkedin.com/pub/isaac-pinyol/42/450/67b"),
+			("Manuela Weber", None, ""),
+			("Marc Natter", None, "http://scholar.harvard.edu/m_n"),
+		] %}
+		<ul class="team">
+			{%- for name, photo, link in team_list %}
+			<li>
+				<a href="{{ link }}">
+					{%- if photo %}
+					<img class="portrait" src="images/{{ photo }}.jpg" alt="">
+					{%- else %}
+					<div class="portrait"><i class="icon fa-user"></i></div>
+					{%- endif %}
+					{{ name }}
+				</a>
+			</li>
+			{%- endfor %}
+		</ul>
+	</div>
+</section>
+{% endblock %}

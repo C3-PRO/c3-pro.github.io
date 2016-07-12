@@ -158,7 +158,7 @@ sup {
 		img {
 			max-width: 100%;
 		}
-		}
+	}
 	.banner_name {
 		@include flex(2 2);
 	}
@@ -285,6 +285,37 @@ sup {
 	}
 }
 
+ul.team {
+	padding: 0;
+	list-style-type: none;
+	
+	li {
+		float: left;
+		min-width: 7em;
+		margin: 0 1.5em 3em;
+		text-align: center;
+		.portrait {
+			display: block;
+			width: 90px; height: 90px;
+			margin: 10px auto 1.25em;
+			border-radius: 100%;
+			box-shadow: 0 0 0 7px white, 0 0 0 10px $color-header-text;
+			@include transition(box-shadow 0.2s ease-in-out);
+			
+			i {
+				font-size: 90px*0.75;
+			}
+		}
+		a:hover .portrait {
+			box-shadow: 0 0 0 7px white, 0 0 0 10px $color-main;
+		}
+	}
+	&:after, &::after {
+		content: "";
+		display: block; clear: left;
+	}
+}
+
 // footer
 footer {
 	min-height: 6em;
@@ -398,6 +429,15 @@ footer {
 		}
 		.links > a .icon {
 			font-size: 120%; vertical-align: -0.075em;
+		}
+	}
+	ul.team li {
+		margin-bottom: 2em;
+		.portrait {
+			width: 60px; height: 60px;
+			i {
+				font-size: 60px*0.75;
+			}
 		}
 	}
 }

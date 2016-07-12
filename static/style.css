@@ -81,6 +81,13 @@ sup { top: 0; }
 .module .tech > span img { width: 26px; height: 26px; margin: 2px; vertical-align: middle; }
 .module .links > a .icon { display: inline-block; height: 1.25em; margin-right: 0.1em; font-size: 180%; text-align: center; vertical-align: -0.175em; }
 
+ul.team { padding: 0; list-style-type: none; }
+ul.team li { float: left; min-width: 7em; margin: 0 1.5em 3em; text-align: center; }
+ul.team li .portrait { display: block; width: 90px; height: 90px; margin: 10px auto 1.25em; border-radius: 100%; box-shadow: 0 0 0 7px white, 0 0 0 10px silver; -webkit-transition: box-shadow 0.2s ease-in-out; -moz-transition: box-shadow 0.2s ease-in-out; transition: box-shadow 0.2s ease-in-out; }
+ul.team li .portrait i { font-size: 67.5px; }
+ul.team li a:hover .portrait { box-shadow: 0 0 0 7px white, 0 0 0 10px #ffa416; }
+ul.team:after, ul.team::after { content: ""; display: block; clear: left; }
+
 footer { min-height: 6em; margin: 0; padding: 2em 1em 4em; font-size: 0.8em; text-align: center; border-top: 1px solid #a0a0a0; }
 footer a:link, footer a:hover, footer a:visited { border: none; -webkit-text-decoration-style: none; text-decoration-style: none; }
 footer p { margin-top: 2em; }
@@ -114,7 +121,10 @@ footer .institute { width: 100%; max-width: 320px; }
   .oneline > .column > h3 img.section { width: 50px; height: 50px; vertical-align: -0.6em; }
   .module .tech > span { font-size: 0.7em; }
   .module .tech > span img { width: 13px; height: 13px; margin: 3px; }
-  .module .links > a .icon { font-size: 120%; vertical-align: -0.075em; } }
+  .module .links > a .icon { font-size: 120%; vertical-align: -0.075em; }
+  ul.team li { margin-bottom: 2em; }
+  ul.team li .portrait { width: 60px; height: 60px; }
+  ul.team li .portrait i { font-size: 45px; } }
 /* Phones */
 @media screen and (max-width: 480px) { body { font-size: 11pt; }
   h1, h2, h3, h4, h5 { line-height: normal; }

@@ -55,6 +55,12 @@ def process_module_properties(properties):
 		properties['short'] = markdown(properties['short'][:100])
 	return properties
 
+# team page
+def render_team():
+	team = env.get_template('team.html')
+	with io.open('team.html', 'w', encoding='utf-8') as h:
+		h.write(team.render())
 
 if '__main__' == __name__:
 	render_index()
+	render_team()
